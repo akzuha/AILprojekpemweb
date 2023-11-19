@@ -1,14 +1,13 @@
 <?php
     include("koneksi.php");
-
     if(isset($_POST['submit'])){
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $query_user = "SELECT * FROM user WHERE username='$username'";
+        $query_user = "SELECT * FROM user WHERE username=$username";
         $result_user = mysqli_query($koneksi, $query_user);
 
-        $query_supplier = "SELECT * FROM supplier WHERE username='$username'";
+        $query_supplier = "SELECT * FROM supplier WHERE username=$username";
         $result_supplier = mysqli_query($koneksi, $query_supplier);
 
         if($result_user && mysqli_num_rows($result_user) > 0){
@@ -19,6 +18,10 @@
                 session_start();
                 $_SESSION['idakun'] = $user['idakun'];
                 $_SESSION['username'] = $user['username'];
+                $_SESSION['password'] = $user['password'];
+                $_SESSION['gender'] = $user['gender'];
+                $_SESSION['tanggal_lahir'] = $user['tanggal_lahir'];
+                $_SESSION['alamat'] = $user['alamat'];
                 header("Location: user_dashboard.php");
                 exit;
             }else {
@@ -29,7 +32,7 @@
             $storedpassword = $supplier['password'];
             
             if(password_verify($password, $storedpassword)){
-                session_start();
+                session_start(); 
                 $_SESSION['idsupplier'] = $supplier['idsupplier'];
                 $_SESSION['username'] = $supplier['username'];
                 header("Location: supplier_dashboard.php");
@@ -38,7 +41,7 @@
                 echo "Kata sandi salah";
             }
         } else {
-            echo "Username tidak ditemukan";
+            ?><script>alert('Username Tidak Ditemukan! Coba isi ulang!')</script><?php
         }
     }
 ?>
@@ -56,8 +59,8 @@
         <form action="login.php" method="post">
             <h1>Akun Supplier</h1>
             <span>masuk menggunakan akun supplier</span>
-            <input type="email" placeholder="Username">
-            <input type="password" placeholder="Password">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
             <a href="register.php">Belum punya akun?</a>
             <button id="submit" name="submit">Sign In</button>
         </form>
@@ -66,8 +69,8 @@
         <form action="login.php" method="post">
             <h1>Akun User</h1>
             <span>masuk menggunakan akun user</span>
-            <input type="email" placeholder="Username">
-            <input type="password" placeholder="Password">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
             <a href="register.php">Belum punya akun?</a>
             <button id="submit" name="submit">Sign In</button>
         </form>

@@ -7,7 +7,7 @@
         $query = "DELETE from `user` WHERE idakun=$idakun";
         $result = mysqli_query($koneksi,$query);
         if($result){
-            echo "deleted succesfull";
+            echo "deleted succesfully";
             header("Location: index.php");
         }else {
             die(mysqli_error($koneksi));

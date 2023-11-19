@@ -1,51 +1,10 @@
-<?php
-    include("koneksi.php");
-    if(isset($_POST['submit'])){
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-
-        $query_user = "SELECT * FROM user WHERE user.username=$username";
-        $result_user = mysqli_query($koneksi, $query_user);
-
-        $query_supplier = "SELECT * FROM supplier WHERE user.username=$username";
-        $result_supplier = mysqli_query($koneksi, $query_supplier);
-
-        if($result_user && mysqli_num_rows($result_user) > 0){
-            $user = mysqli_fetch_assoc($result_user);
-            $storedpassword = $user['password'];
-            
-            if(password_verify($password, $storedpassword)){
-                session_start();
-                $_SESSION['idakun'] = $user['idakun'];
-                $_SESSION['username'] = $user['username'];
-                $_SESSION['password'] = $user['password'];
-                $_SESSION['gender'] = $user['gender'];
-                $_SESSION['tanggal_lahir'] = $user['tanggal_lahir'];
-                $_SESSION['alamat'] = $user['alamat'];
-                header("Location: user_dashboard.php");
-                exit;
-            }else {
-                echo "Kata sandi salah";
-            }
-        } elseif($result_supplier && mysqli_num_rows($result_supplier) > 0){
-            $supplier = mysqli_fetch_assoc($result_supplier);
-            $storedpassword = $supplier['password'];
-            
-            if(password_verify($password, $storedpassword)){
-                session_start(); 
-                $_SESSION['idsupplier'] = $supplier['idsupplier'];
-                $_SESSION['username'] = $supplier['username'];
-                header("Location: supplier_dashboard.php");
-                exit;
-            } else {
-                echo "Kata sandi salah";
-            }
-        } else {
-            ?><script>alert('Username Tidak Ditemukan! Coba isi ulang!')</script><?php
-        }
-    }
-?>
-
+<?php 
+	if(isset($_GET['pesan'])){
+		if($_GET['pesan']=="gagal"){
+			echo "<div class='alert'>Username dan Password tidak sesuai !</div>";
+		}
+	}
+	?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,23 +15,23 @@
 <body>
 <div class="container" id="container">
     <div class="form-container sign-up">
-        <form action="login.php" method="post">
+        <form action="cek_login.php" method="post">
             <h1>Akun Supplier</h1>
             <span>masuk menggunakan akun supplier</span>
             <input type="text" name="username" placeholder="Username">
             <input type="password" name="password" placeholder="Password">
             <a href="register.php">Belum punya akun?</a>
-            <button id="submit" name="submit">Sign In</button>
+            <button id="submit" name="submit_supplier">Sign In</button>
         </form>
     </div>
     <div class="form-container sign-in">
-        <form action="login.php" method="post">
+        <form action="cek_login.php" method="post">
             <h1>Akun User</h1>
             <span>masuk menggunakan akun user</span>
             <input type="text" name="username" placeholder="Username">
             <input type="password" name="password" placeholder="Password">
             <a href="register.php">Belum punya akun?</a>
-            <button id="submit" name="submit">Sign In</button>
+            <button id="submit" name="submit_user">Sign In</button>
         </form>
     </div>
     <div class="toggle-container">

@@ -4,10 +4,10 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $query_user = "SELECT * FROM user WHERE username=$username";
+        $query_user = "SELECT * FROM user WHERE user.username=$username";
         $result_user = mysqli_query($koneksi, $query_user);
 
-        $query_supplier = "SELECT * FROM supplier WHERE username=$username";
+        $query_supplier = "SELECT * FROM supplier WHERE user.username=$username";
         $result_supplier = mysqli_query($koneksi, $query_supplier);
 
         if($result_user && mysqli_num_rows($result_user) > 0){

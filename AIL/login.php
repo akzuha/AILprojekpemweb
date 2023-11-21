@@ -39,7 +39,7 @@
                 session_start(); 
                 $_SESSION['idsupplier'] = $supplier['idsupplier'];
                 $_SESSION['username'] = $supplier['username'];
-                $_SESSION['password'] = $user['password'];
+                $_SESSION['password'] = $supplier['password'];
                 header("Location: supplier_dashboard.php");
                 exit;
             } else {

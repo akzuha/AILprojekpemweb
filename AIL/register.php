@@ -3,11 +3,13 @@
     if(isset($_POST['submit_user'])){
         $idakun = $_POST['idakun'];
         $username = $_POST['username'];
-        $password = $_POST['password'];
+        $password = hash('sha256',$_POST['password']);
+        $cpassword = hash('sha256',$_POST['password']);
         $gender = $_POST['gender'];
         $tanggal_lahir = $_POST['tanggal_lahir'];
         $alamat = $_POST['alamat'];
 
+        if($password == $cpassword){
         $query = "INSERT INTO user(idakun,username,password,gender,tanggal_lahir,alamat) VALUES ('$idakun','$username','$password','$gender','$tanggal_lahir','$alamat')";
         $result = mysqli_query($koneksi,$query);
         if($result){
@@ -17,11 +19,13 @@
             </script>
             <?php
         }
+        }
     }
     else if(isset($_POST['submit_supplier'])){
         $id = $_POST['idsupplier'];
         $username = $_POST['usernamesupplier'];
-        $password = $_POST['password'];
+        $password = hash('sha256',$_POST['password']);
+        $cpassword = hash('sha256',$_POST['password']);
 
         $query = "INSERT INTO supplier(idsupplier,username,password) VALUES ('$id','$username','$password')";
         $result = mysqli_query($koneksi,$query);

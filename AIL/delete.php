@@ -4,7 +4,7 @@
     if(isset($_GET['deleteid'])){
         $idakun=$_GET['deleteid'];
 
-        $query = "DELETE from `user` WHERE idakun=$idakun";
+        $query = "DELETE from `user` WHERE idakun='$idakun'";
         $result = mysqli_query($koneksi,$query);
         if($result){
             echo "deleted succesfully";

@@ -2,14 +2,15 @@
     include("koneksi.php");
 
     if(isset($_GET['updateid'])){
-        $idakun=$_GET['updateid'];
+        $id=$_GET['updateid'];
     
-        $query = "SELECT * FROM `user` WHERE idakun=$idakun";
-        $result = mysqli_query($koneksi,$query);
+        $query = "SELECT * FROM user WHERE idakun='$id'";
+        $result = mysqli_query($koneksi, $query);
         $data = mysqli_fetch_assoc($result);
     }
 
     if (isset($_POST['submit'])){
+        $idakun=$_POST['idakun'];
         $username = $_POST['username'];
         $password = $_POST['password'];
         $gender = $_POST['gender'];
@@ -19,7 +20,7 @@
         $query = " UPDATE `user` SET idakun='$idakun', username='$username', password='$password', gender='$gender', tanggal_lahir='$tanggal_lahir', alamat='$alamat' WHERE idakun='$idakun'";
         $result = mysqli_query($koneksi,$query);
             if($result){
-                echo " edit succesfull";
+                echo "edit succesfully";
                 header("Location: index.php");
             }else{
                 echo "pembaruan gagal : " .mysqli_error($koneksi); 

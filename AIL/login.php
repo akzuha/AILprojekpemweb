@@ -2,10 +2,10 @@
     include("koneksi.php");
     session_start();
     if(isset($_POST['submit_user'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        $username = $_POST['usernameuser'];
+        $password = $_POST['passworduser'];
 
-        $query_user = "SELECT * FROM user WHERE 1";
+        $query_user = "SELECT * FROM user WHERE username='$username'";
         $result_user = mysqli_query($koneksi, $query_user);
 
             $result_user && mysqli_num_rows($result_user) > 0;
@@ -28,10 +28,10 @@
             
         
     } else if(isset($_POST['submit_supplier'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        $username = $_POST['usernamesup'];
+        $password = $_POST['passwordsup'];
 
-        $query_supplier = "SELECT * FROM supplier WHERE 1";
+        $query_supplier = "SELECT * FROM supplier WHERE username='$username'";
         $result_supplier = mysqli_query($koneksi, $query_supplier);
 
         
@@ -65,8 +65,8 @@
         <form action="login.php" method="post">
             <h1>Akun Supplier</h1>
             <span>masuk menggunakan akun supplier</span>
-            <input type="text" name="username" placeholder="Username">
-            <input type="password" name="password" placeholder="Password">
+            <input type="text" name="usernamesup" placeholder="Username">
+            <input type="password" name="passwordsup" placeholder="Password">
             <a href="register.php">Belum punya akun?</a>
             <button id="submit" name="submit_supplier">Sign In</button>
         </form>
@@ -75,8 +75,8 @@
         <form action="login.php" method="post">
             <h1>Akun User</h1>
             <span>masuk menggunakan akun user</span>
-            <input type="text" name="username" placeholder="Username">
-            <input type="password" name="password" placeholder="Password">
+            <input type="text" name="usernameuser" placeholder="Username">
+            <input type="password" name="passworduser" placeholder="Password">
             <a href="register.php">Belum punya akun?</a>
             <button id="submit" name="submit_user">Sign In</button>
         </form>

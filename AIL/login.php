@@ -8,11 +8,12 @@
         $query_user = "SELECT * FROM user WHERE username='$username'";
         $result_user = mysqli_query($koneksi, $query_user);
 
-            $result_user && mysqli_num_rows($result_user) > 0;
+        if($result_user && mysqli_num_rows($result_user) > 0){
             $user = mysqli_fetch_assoc($result_user);
             $storedusername = $user['username'];
             $storedpassword = $user['password'];
-                if($username == $storedusername &&  $password == $storedpassword){
+
+            if($username == $storedusername && $password == $storedpassword){
                 $_SESSION['idakun'] = $user['idakun'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['password'] = $user['password'];
@@ -21,11 +22,12 @@
                 $_SESSION['alamat'] = $user['alamat'];
                 header("Location: user_dashboard.php");
                 exit;
-                }else{
-                    echo "<script>alert('username atau password salah!')</script>";
-                }
-            
-            
+            }else{
+                echo "<script>alert('password salah!')</script>";    
+            }
+        }else{
+            echo "<script>alert('username salah!')</script>";  
+        }
         
     } else if(isset($_POST['submit_supplier'])) {
         $username = $_POST['usernamesup'];
@@ -34,13 +36,12 @@
         $query_supplier = "SELECT * FROM supplier WHERE username='$username'";
         $result_supplier = mysqli_query($koneksi, $query_supplier);
 
-        
         if ($result_supplier && mysqli_num_rows($result_supplier) > 0) {
             $supplier = mysqli_fetch_assoc($result_supplier);
             $storedusername = $supplier['username'];
             $storedpassword = $supplier['password'];
 
-            if($username == $storedusername &&  $password == $storedpassword){
+            if($username == $storedusername && $password == $storedpassword){
                 $_SESSION['idsupplier'] = $supplier['idsupplier'];
                 $_SESSION['username'] = $supplier['username'];
                 $_SESSION['password'] = $supplier['password'];
@@ -49,6 +50,8 @@
             }else{
                 echo "<script>alert('username atau password salah!')</script>";
             }
+        }else{
+            echo "<script>alert('data tidak ada!')</script>";
         }
     }
 ?>

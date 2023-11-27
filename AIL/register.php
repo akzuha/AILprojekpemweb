@@ -7,9 +7,9 @@
         $gender = $_POST['gender'];
         $tanggal_lahir = $_POST['tanggal_lahir'];
         $alamat = $_POST['alamat'];
+        $level = "user";
 
-        
-        $query = "INSERT INTO user(idakun,username,password,gender,tanggal_lahir,alamat) VALUES ('$idakun','$username','$password','$gender','$tanggal_lahir','$alamat')";
+        $query = "INSERT INTO user(idakun,username,password,gender,tanggal_lahir,alamat,level) VALUES ('$idakun','$username','$password','$gender','$tanggal_lahir','$alamat','$level')";
         $result = mysqli_query($koneksi,$query);
         if($result){
             ?><script>

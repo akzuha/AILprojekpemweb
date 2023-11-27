@@ -42,7 +42,7 @@
     <style>
 
     </style>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Projek_ail</title>
 </head>
@@ -92,6 +92,7 @@
         </div>
     </div>        
 </div>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/alert.js"></script>
 </body>
 </html>

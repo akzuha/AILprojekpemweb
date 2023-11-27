@@ -20,13 +20,13 @@
                 $_SESSION['gender'] = $user['gender'];
                 $_SESSION['tanggal_lahir'] = $user['tanggal_lahir'];
                 $_SESSION['alamat'] = $user['alamat'];
-                header("Location: user_dashboard.php");
+                header("Location: user/user_dashboard.php");
                 exit;
             }else{
                 echo "<script>alert('password salah!')</script>";    
             }
         }else{
-            echo "<script>alert('username salah!')</script>";  
+            echo "<script>alert('username tidak ditemukan!')</script>";  
         }
         
     } else if(isset($_POST['submit_supplier'])) {
@@ -45,20 +45,20 @@
                 $_SESSION['idsupplier'] = $supplier['idsupplier'];
                 $_SESSION['username'] = $supplier['username'];
                 $_SESSION['password'] = $supplier['password'];
-                header("Location: supplier_dashboard.php");
+                header("Location: supplier/supplier_dashboard.php");
                 exit;
             }else{
-                echo "<script>alert('username atau password salah!')</script>";
+                echo "<script>alert('password salah!')</script>";
             }
         }else{
-            echo "<script>alert('data tidak ada!')</script>";
+            echo "<script>alert('username tidak ditemukan!')</script>";
         }
     }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Login</title>
 </head>
@@ -99,7 +99,7 @@
         </div>
     </div>        
 </div>
-    <script src="script.js"></script>
-    <script src="alert.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/alert.js"></script>
 </body>
 </html>

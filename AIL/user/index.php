@@ -84,6 +84,6 @@
                 </table>
             </form>
         </h2>
-        <a href="logout.php">Logout</a>
+        <a href="../logout.php">Logout</a>
 </body>
 </html>

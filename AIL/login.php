@@ -14,7 +14,7 @@
             $storedpassword = $user['password'];
 
             if($username == $storedusername && $password == $storedpassword){
-                if($user['level']=="admin"){
+                if($user['level']=="user"){
                     $_SESSION['idakun'] = $user['idakun'];
                     $_SESSION['username'] = $user['username'];
                     $_SESSION['password'] = $user['password'];
@@ -23,7 +23,7 @@
                     $_SESSION['alamat'] = $user['alamat'];
                     header("Location: user/index.php");
                     exit();
-                }else if($user['level']=="user"){
+                }else if($user['level']=="admin"){
                     $_SESSION['idakun'] = $user['idakun'];
                     $_SESSION['username'] = $user['username'];
                     $_SESSION['password'] = $user['password'];

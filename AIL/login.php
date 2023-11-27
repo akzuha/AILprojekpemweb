@@ -8,20 +8,33 @@
         $query_user = "SELECT * FROM user WHERE username='$username'";
         $result_user = mysqli_query($koneksi, $query_user);
 
-        if($result_user && mysqli_num_rows($result_user) > 0){
+        if($result_user > 0){
             $user = mysqli_fetch_assoc($result_user);
             $storedusername = $user['username'];
             $storedpassword = $user['password'];
 
             if($username == $storedusername && $password == $storedpassword){
-                $_SESSION['idakun'] = $user['idakun'];
-                $_SESSION['username'] = $user['username'];
-                $_SESSION['password'] = $user['password'];
-                $_SESSION['gender'] = $user['gender'];
-                $_SESSION['tanggal_lahir'] = $user['tanggal_lahir'];
-                $_SESSION['alamat'] = $user['alamat'];
-                header("Location: user/user_dashboard.php");
-                exit;
+                if($user['level']=="admin"){
+                    $_SESSION['idakun'] = $user['idakun'];
+                    $_SESSION['username'] = $user['username'];
+                    $_SESSION['password'] = $user['password'];
+                    $_SESSION['gender'] = $user['gender'];
+                    $_SESSION['tanggal_lahir'] = $user['tanggal_lahir'];
+                    $_SESSION['alamat'] = $user['alamat'];
+                    header("Location: user/index.php");
+                    exit();
+                }else if($user['level']=="user"){
+                    $_SESSION['idakun'] = $user['idakun'];
+                    $_SESSION['username'] = $user['username'];
+                    $_SESSION['password'] = $user['password'];
+                    $_SESSION['gender'] = $user['gender'];
+                    $_SESSION['tanggal_lahir'] = $user['tanggal_lahir'];
+                    $_SESSION['alamat'] = $user['alamat'];
+                    header("location:admin/index.php");
+                    exit();
+                }else{
+                    echo "<script>alert('salah!')</script>";   
+                }
             }else{
                 echo "<script>alert('password salah!')</script>";    
             }
@@ -36,7 +49,7 @@
         $query_supplier = "SELECT * FROM supplier WHERE username='$username'";
         $result_supplier = mysqli_query($koneksi, $query_supplier);
 
-        if ($result_supplier && mysqli_num_rows($result_supplier) > 0) {
+        if ($result_supplier > 0) {
             $supplier = mysqli_fetch_assoc($result_supplier);
             $storedusername = $supplier['username'];
             $storedpassword = $supplier['password'];
@@ -45,8 +58,8 @@
                 $_SESSION['idsupplier'] = $supplier['idsupplier'];
                 $_SESSION['username'] = $supplier['username'];
                 $_SESSION['password'] = $supplier['password'];
-                header("Location: supplier/supplier_dashboard.php");
-                exit;
+                header("Location: supplier/index.php");
+                exit();
             }else{
                 echo "<script>alert('password salah!')</script>";
             }

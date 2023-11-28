@@ -15,7 +15,6 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -23,7 +22,8 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Film Data Tables</h3>
+                <h3 class="card-title">Film Data Tables</h3> </br>
+                <h3 class="card-title"><a href="?page=add_film">Add Film</a></h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -84,8 +84,8 @@
                                 <td>' .$filmname. '</td>
                                 <td>' .$cover. '</td>
                                 <td>' .$idsupplier. '</td>
-                                <td><a href="update.php?updateid='.$idfilm.'"> UBAHHH </a> | 
-                                    <a href="delete.php?deleteid='.$idfilm.'"> HAPUSSS </a>
+                                <td><a href="update.php?updateid='.$idfilm.'"> EDIT </a> | 
+                                    <a href="delete.php?deleteid='.$idfilm.'"> DELETE </a>
                                 </td>
                               </tr>';
                     }

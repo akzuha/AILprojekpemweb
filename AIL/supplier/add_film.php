@@ -1,5 +1,5 @@
 <?php 
-if(isset($_POST['submit_user'])){
+if(isset($_POST['submit'])){
     $idfilm = $_POST['idfilm'];
     $namafilm = $_POST['namafilm'];
     $cover = $_FILES['foto']['name'];
@@ -7,8 +7,9 @@ if(isset($_POST['submit_user'])){
         $upload = 'images/' . $foto;
         move_uploaded_file($_FILES["foto"]["tmp_name"], $upload);
     }
+    $idsupplier = $_SESSION['idsupplier'];
 
-    $query = "INSERT INTO user(idfilm,namafilm,cover,idsupplier) VALUES ('$idfilm','$namafilm','$cover'.'$_SESSION[idsupplier]')";
+    $query = "INSERT INTO film (idfilm,namafilm,cover,idsupplier) VALUES ('$idfilm','$namafilm','$cover'.'$idsupplier')";
     $result = mysqli_query($koneksi,$query);
     if($result){
         ?><script>
@@ -16,7 +17,7 @@ if(isset($_POST['submit_user'])){
         </script>
         <?php
     }
-    header('Location:index.php');
+    header('location: index.php?page=list_film');
 }
 ?>
 
@@ -51,32 +52,27 @@ if(isset($_POST['submit_user'])){
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Film ID</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <label for="idfilm">Film ID</label>
+                    <input type="text" name="idfilm" class="form-control" id="idfilm" placeholder="Enter ID film">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Film Name</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <label for="namafilm">Film Name</label>
+                    <input type="text" name="namafilm" class="form-control" id="namafilm" placeholder="Enter film name">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Film Cover</label>
                     <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-                      </div>
+                        <input type="file" name="foto" class="custom-file-input" id="foto" accept=".png, .jpg">
+                        <label class="custom-file-label" for="foto">Choose file</label>
                     </div>
                   </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
             </div>

@@ -8,7 +8,7 @@
         $result = mysqli_query($koneksi,$query);
         if($result){
             echo "deleted succesfully";
-            header("location: ../index.php?page=list_user");
+            header("location: ../listwatch.php?page=list_user");
         }else {
             die(mysqli_error($koneksi));
         }

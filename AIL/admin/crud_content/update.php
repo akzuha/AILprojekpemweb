@@ -35,7 +35,7 @@
 </head>
 <body>
     <h1 align="center">Edit Content Data</h1>
-    <a href="?page=list_content"></a><h1 align="center">Back</h1>
+    <a href="index.php?page=list_content"><h1 align="center">Back</h1></a>
     <form action="update.php" method="POST">
         <table align="center">
             <tr>

@@ -23,6 +23,10 @@ switch ($_GET['page']){
         break;
     case 'list_watch';
         include 'crud_watch/list_watch.php';
+        break;
+    case 'list_genre';
+        include 'crud_content/list_content.php';
+        break;
 }
 
 ?>

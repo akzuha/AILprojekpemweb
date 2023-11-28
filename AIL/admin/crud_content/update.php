@@ -1,5 +1,5 @@
 <?php
-    include("../../koneksi.php");
+    include("koneksi.php");
 
     if(isset($_GET['updateid'])){
         $id=$_GET['updateid'];
@@ -9,24 +9,19 @@
         $data = mysqli_fetch_assoc($result);
     }
 
-    if (isset($_POST['edit'])){
-        $idakun= $_POST['idakun'];
+    if (isset($_POST['submit'])){
+        $idakun=$_POST['idakun'];
         $username = $_POST['username'];
         $password = $_POST['password'];
         $gender = $_POST['gender'];
         $tanggal_lahir = $_POST['tanggal_lahir'];
         $alamat = $_POST['alamat'];
-        $level = $_POST['level'];
         
-        $query = " UPDATE user SET idakun='$idakun', username='$username', password='$password', gender='$gender', tanggal_lahir='$tanggal_lahir', alamat='$alamat', level='$level' WHERE idakun='$idakun'";
+        $query = " UPDATE user SET idakun='$idakun', username='$username', password='$password', gender='$gender', tanggal_lahir='$tanggal_lahir', alamat='$alamat' WHERE idakun='$idakun'";
         $result = mysqli_query($koneksi,$query);
             if($result){
-                ?>
-                <script>
-                    alert('edit sucessfull!');
-                    document.location = '../index.php?page=list_user';
-                </script>";
-                <?php
+                echo "edit succesfully";
+                header("Location: ../index.php?page=list_user");
             }else{
                 echo "failed" .mysqli_error($koneksi); 
             }
@@ -55,16 +50,16 @@
                 <td><select name="gender" id="gender" value="">
                     <?php 
                     if(isset($_GET['updateid'])){
-                        if($data['gender'] == "Laki-laki"){
-                            echo "<option value='Laki-laki' selected> Laki-laki </option>";
-                            echo "<option value='Perempuan'> Perempuan </option>";
-                        }elseif($data['gender'] == "Perempuan"){
-                            echo "<option value='Laki-laki'> Laki-laki </option>";
-                            echo "<option value='Perempuan' selected> Perempuan </option>";
+                        if($data['gender'] == "laki-laki"){
+                            echo "<option value='laki-laki' selected> laki-laki </option>";
+                            echo "<option value='perempuan'> perempuan </option>";
+                        }elseif($data['gender'] == "perempuan"){
+                            echo "<option value='laki-laki'> laki-laki </option>";
+                            echo "<option value='perempuan' selected> perempuan </option>";
                         }
                     }else{
-                        echo "<option value='Laki-laki'> Laki-laki </option>";
-                        echo "<option value='Perempuan'> Perempuan </option>";
+                        echo "<option value='laki-laki'> laki-laki </option>";
+                        echo "<option value='perempuan'> perempuan </option>";
                     }
                     ?>                    
                 </select>
@@ -79,27 +74,8 @@
                 <td><textarea name="alamat" id="alamat" cols="30" rows="5"><?php if(isset($_GET['updateid'])){echo $data['alamat'];}?></textarea></td>
             </tr>
             <tr>
-                <td>Level</td>
-                <td><select name="level" id="level" value="">
-                    <?php 
-                    if(isset($_GET['updateid'])){
-                        if($data['level'] == "admin"){
-                            echo "<option value='admin' selected> admin </option>";
-                        }elseif($data['level'] == "user"){
-                            echo "<option value='admin'> admin </option>";
-                            echo "<option value='user' selected> user </option>";
-                        }
-                    }else{
-                        echo "<option value='admin'> admin </option>";
-                        echo "<option value='user'> user </option>";
-                    }
-                    ?>                    
-                </select>
-                </td>
-            </tr>
-            <tr>
                 <td><input type="hidden" name="idakun" value="<?php echo $idakun; ?>"></td>
-                <td><input type="submit" name="edit" value="edit"></td>
+                <td><input type="submit" name="submit" value="ubah!"></td>
             </tr>
         </table>
     </form>

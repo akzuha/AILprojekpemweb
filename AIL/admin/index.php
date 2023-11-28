@@ -7,7 +7,6 @@ session_start();
 
 include 'template/topmenu.php';
 include 'template/sidemenu.php';
-include 'dashboard.php';
 
 ?>
 
@@ -16,12 +15,14 @@ switch ($_GET['page']){
     default:
         include 'dashboard.php';
         break;
-    case 'list_film';
+    case 'list_user';
         include 'crud_user/list_user.php';
         break;
-    case 'add_film';
-        include 'crud_user/add_user.php';
+    case 'list_content';
+        include 'crud_content/list_content.php';
         break;
+    case 'list_watch';
+        include 'crud_watch/list_watch.php';
 }
 ?>
 

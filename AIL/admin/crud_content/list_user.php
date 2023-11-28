@@ -23,7 +23,7 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">User Data Table</h3></br>
-                <a href="?page=add_user"><h3 class="card-title">Add User Data</h3></a>
+                <h3 class="card-title">Add Watch Data</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">

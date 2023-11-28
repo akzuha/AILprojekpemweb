@@ -51,8 +51,8 @@
         <form action="" method="post">
             <h1 align="center">Buat Akun Supplier</h1>
             <span>buat akun supplier baru</span>
-            <input type="text" name="idsupplier" placeholder="ID" maxlength="10">
-            <input type="text" name="usernamesupplier" placeholder="Username" maxlength="10">
+            <input type="text" name="idsupplier" placeholder="ID" maxlength="20">
+            <input type="text" name="usernamesupplier" placeholder="Username" maxlength="20">
             <input type="password" name="password" placeholder="Password">
             <a href="login.php">Sudah punya akun?</a>
             <button id="submit_supplier" name="submit_supplier">Daftar</button>
@@ -62,13 +62,13 @@
         <form action="" method="post">
             <h1>Buat Akun User</h1>
             <span>buat akun user baru</span>
-            <input type="text" name="idakun" placeholder="ID" maxlength="10">
-            <input type="text" name="username" placeholder="Username" maxlength="10">
+            <input type="text" name="idakun" placeholder="ID" maxlength="20">
+            <input type="text" name="username" placeholder="Username" maxlength="20">
             <input type="password" name="password" placeholder="Password">
             <select name="gender" id="gender">
                 <option value="0"> Jenis Kelamin : </option>
                 <option value="Laki-laki"> Laki-Laki </option>
-                <option value="perempuan"> Perempuan </option>
+                <option value="Perempuan"> Perempuan </option>
             </select>
             <input type="date" name="tanggal_lahir">
             <input type="text" name="alamat" id="alamat" placeholder="Alamat">

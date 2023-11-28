@@ -1,20 +1,28 @@
 <?php 
-if(isset($_POST['submit_user'])){
+
+if(isset($_POST['submit'])){
     $idfilm = $_POST['idfilm'];
     $namafilm = $_POST['namafilm'];
-    $cover = $_POST['cover'];
+    $cover = $_FILES['foto']['name'];
+    $description = $_POST['deskripsi'];
+    if ($cover != '') {
+        $upload = 'images/' . $cover;
+        move_uploaded_file($_FILES["foto"]["tmp_name"], $upload);
+    }
+    $idsupplier = $_SESSION['idsupplier'];
 
-    $query = "INSERT INTO user(idfilm,namafilm,cover,idsupplier) VALUES ('$idfilm','$namafilm','$cover'.'$_SESSION[idsupplier]')";
+    $query = "INSERT INTO film (idfilm,namafilm,deskripsi,cover,idsupplier) VALUES ('$idfilm','$namafilm','$description','$cover','$idsupplier')";
     $result = mysqli_query($koneksi,$query);
     if($result){
         ?><script>
         alert('Film Berhasil Ditambahkan!');
+        document.location = 'index.php?page=list_film';
         </script>
         <?php
     }
-    header('Location:index.php');
 }
 ?>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -22,7 +30,7 @@ if(isset($_POST['submit_user'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 align="center">ADD USER</h1>
+            <h1 align="center">ADD FILM</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -46,34 +54,40 @@ if(isset($_POST['submit_user'])){
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Film ID</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Film Name</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputFile">Film Cover</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <button type="submit_user" class="btn btn-primary">Submit</button>
-                </div>
-              </form>
+              <form action='<?php $_SERVER['PHP_SELF']; ?>' name='insert' method='post' enctype='multipart/form-data'>
+    <table align="center">
+        <tr>
+            <td>Film ID</td>
+            <td>
+                <input type="text" name="idfilm">
+            </td>
+        </tr>
+        <tr>
+            <td>Film Name</td>
+            <td>
+                <input type="text" name="namafilm">
+            </td>
+        </tr>
+        <tr>
+            <td>Film Description</td>
+            <td>
+                <textarea name="deskripsi" id="deskripsi" cols="30" rows="10"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>Film Cover</td>
+            <td>
+                <input type="file" name="foto" accept=".png, .jpg">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" name="submit" value="Add Film Data">
+            </td>
+        </tr>
+    </table>
+</form>
             </div>
             <!-- /.card -->
           </div>

@@ -69,13 +69,14 @@ if (isset($_POST['update'])) {
             <tr>
                 <td>Film Description</td>
                 <td>
-                    <textarea name="alamat" id="cover" cols="30" rows="10"><?php echo $data['deskripsi']; ?> </textarea>
+                    <textarea name="deskripsi" id="cover" cols="30" rows="10"><?php echo $data['deskripsi']; ?> </textarea>
                 </td>
             </tr>
             <tr>
                 <td>Film Cover</td>
                 <td>
-                    <input type="file" name="namafilm" value="<?php echo $data['namafilm']; ?>" accept=".png, .jpg">
+                    <img src="<?php echo $data['cover']; ?>" width="100" height="100"> <br>
+                    <input type="file" name="cover" accept=".png, .jpg">
                 </td>
             </tr>
             <tr>

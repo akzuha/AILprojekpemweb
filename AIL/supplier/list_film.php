@@ -54,11 +54,11 @@
                               <td>$data_film[idfilm]</td>
                               <td>$data_film[namafilm]</td>
                               <td width='600'>$data_film[deskripsi]</td>
-                              <td><img src='$data_film[foto]' width='100' height='100'></td>
+                              <td><img src='images/$data_film[cover]' width='100' height='100'></td>
                               <td>$data_film[idsupplier]</td>
                               <td>
-                              <a href='update.php?idfilm=$data_film[idfilm]'> Edit </a> ||
-                              <a href='view.php?idfilm=$data_film[idfilm]'> Hapus </a>
+                              <a href='update_film.php?updateid=$data_film[idfilm]'> EDIT </a> ||
+                              <a href='delete_film.php?deleteid=$data_film[idfilm]'> DELETE </a>
                               </td>
                           </tr>
                           ";

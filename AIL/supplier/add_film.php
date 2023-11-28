@@ -1,6 +1,5 @@
 <?php 
 
-
 if(isset($_POST['submit'])){
     $idfilm = $_POST['idfilm'];
     $namafilm = $_POST['namafilm'];
@@ -12,15 +11,15 @@ if(isset($_POST['submit'])){
     }
     $idsupplier = $_SESSION['idsupplier'];
 
-    $query = "INSERT INTO film (idfilm,namafilm,deskripsi,cover,idsupplier) VALUES ('$idfilm','$namafilm','$description','$cover'.'$idsupplier')";
+    $query = "INSERT INTO film (idfilm,namafilm,deskripsi,cover,idsupplier) VALUES ('$idfilm','$namafilm','$description','$cover','$idsupplier')";
     $result = mysqli_query($koneksi,$query);
     if($result){
         ?><script>
         alert('Film Berhasil Ditambahkan!');
+        document.location = 'index.php?page=list_film';
         </script>
         <?php
     }
-    header('location: index.php?page=add_film');
 }
 ?>
 

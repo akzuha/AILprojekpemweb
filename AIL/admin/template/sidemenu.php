@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AIL</span>
+      <span class="brand-text font-weight-light">AIL - Admin</span>
     </a>
 
     <!-- Sidebar -->
@@ -40,14 +40,6 @@
               <i class="nav-icon fas fa-solid fa-user"></i>
               <p>
                 User
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="?page=list_content" class="nav-link">
-              <i class="nav-icon fas fa-tree"></i>
-              <p>
-                Content
               </p>
             </a>
           </li>

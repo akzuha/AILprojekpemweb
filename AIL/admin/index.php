@@ -18,17 +18,11 @@ switch ($_GET['page']){
     case 'list_user';
         include 'crud_user/list_user.php';
         break;
-    case 'list_content';
-        include 'crud_content/list_content.php';
-        break;
     case 'list_watch';
         include 'crud_watch/list_watch.php';
         break;
     case 'list_genre';
-        include 'crud_content/list_content.php';
-        break;
-        case 'add_user';
-        include 'crud_content/list_content.php';
+        include 'crud_genre/list_genre.php';
         break;
 }
 

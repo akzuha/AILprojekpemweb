@@ -1,18 +1,102 @@
-    <header>
-        <div class="about">
-            
-        </div>
-    </header>
-    <script>
-        const toggleBtn = document.querySelector('.togle_btn')
-        const toggleBtnIcon = document.querySelector('toggle_btn i')
-        const dropDownMenu = document.querySelector('.dropdown_menu')
+    <!-- main -->
+    <main>
+        <!-- main -->
+        <section id="hero" class="hero">
+            <div class="container">
+                <h3>Movies and Streaming</h3>
+                <h1>AIL Streaming Film</h1>
+                <span></span>
+                <p>
+                    Tired getting home after work? Watch some Film and Chill with AIL ID.
+                </p>
+                <a href="#" class="action_btn">Get Started</a>
+            </div>
+        </section>
+        <!-- services -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Weekly Best Film Reccomendation</h2>
+                <!--Service 1-->
+                <div class="service">
+                    <div class="image">
+                        <img src="../images/FOTO CV RIAN.jpg" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="num">#1</div>
+                        <h3>nama film</h3>
+                        <p>
+                            deskripsi singkat film
+                        </p>
+                        <button class="action_btn">Read More</button>
+                    </div>
+                </div>
+                <!--Service 2-->
+                <div class="service service2">
+                    <div class="info">
+                        <div class="num">#2</div>
+                        <h3>nama film</h3>
+                        <p>
+                            deskripsi singkat film
+                        </p>
+                        <button class="action_btn">Read More</button>
+                    </div>
+                    <div class="image">
+                        <img src="assets/Foto levi.jpg" alt="">
+                    </div>
+                </div>
+                <!--Service 2-->
+                <div class="service">
+                    <div class="image">
+                        <img src="assets/Foto Sultan.jpg" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="num">#3</div>
+                        <h3>nama film</h3>
+                        <p>
+                            deskripsi singkat film
+                        </p>
+                        <button class="action_btn">Read More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        toggleBtn.onclick = function(){
-            dropDownMenu.classList.toggle.contains('open')
-
-            toggleBtnIcon.classList = isOpen
-            ? 'fa-solid faxmark'
-            : 'fa-solid fa-bars'
-        }   
-    </script>
+        <!-- testimonial -->
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <h2>Testimonials</h2>
+                <div class="grid_container">
+                    <!--Testimonials-->
+                    <div class="testimonial">
+                        <i class="fa fa-quote-left"></i>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ipsam, eos minima voluptatem architecto assumenda, consectetur doloremque doloribus animi quibusdam nostrum perferendis fugiat reprehenderit fuga delectus? Aliquam vel accusantium enim.
+                        </p>
+                        <div class="name">Achmad Aulia</div>
+                        <div class="job">Director</div>
+                    </div>
+                    <!--Testimonials-->
+                    <div class="testimonial">
+                        <i class="fa fa-quote-left"></i>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ipsam, eos minima voluptatem architecto assumenda, consectetur doloremque doloribus animi quibusdam nostrum perferendis fugiat reprehenderit fuga delectus? Aliquam vel accusantium enim.
+                        </p>
+                        <div class="name">Achmad Aulia</div>
+                        <div class="job">Director</div>
+                    </div>
+                    <div class="testimonial">
+                        <i class="fa fa-quote-left"></i>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ipsam, eos minima voluptatem architecto assumenda, consectetur doloremque doloribus animi quibusdam nostrum perferendis fugiat reprehenderit fuga delectus? Aliquam vel accusantium enim.
+                        </p>
+                        <div class="name">Achmad Aulia</div>
+                        <div class="job">Director</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- contact -->
+        <section id="contact" class="contact"></section>
+    </main>
+    

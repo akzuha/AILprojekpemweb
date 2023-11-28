@@ -28,42 +28,11 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
-                <div class="row">
-                  <div class="col-sm-12 col-md-6">
-                    <div class="dt-buttons btn-group flex-wrap">               
-                      <button class="btn btn-secondary buttons-copy buttons-html5" tabindex="0" aria-controls="example1" type="button">
-                        <span>Copy</span>
-                      </button> 
-                      <button class="btn btn-secondary buttons-csv buttons-html5" tabindex="0" aria-controls="example1" type="button">
-                        <span>CSV</span>
-                      </button> 
-                      <button class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="example1" type="button">
-                        <span>Excel</span>
-                      </button> 
-                      <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button">
-                        <span>PDF</span>
-                      </button> 
-                      <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1" type="button">
-                        <span>Print</span>
-                      </button> 
-                      <div class="btn-group">
-                        <button class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis" tabindex="0" aria-controls="example1" type="button" aria-haspopup="true" aria-expanded="false">
-                          <span>Column visibility</span>
-                          <span class="dt-down-arrow"></span>
-                        </button>
-                      </div> 
-                    </div>
-                  </div>
-                  <div class="col-sm-12 col-md-6"><div id="example1_filter" class="dataTables_filter">
-                    <label>Search:
-                      <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
-                    </div>
-                  </div>
-                </div>
                   <thead>
                   <tr>
                     <th>Film ID</th>
                     <th>Film Name</th>
+                    <th>Film Description</th>
                     <th>Film Cover</th>
                     <th>Supplier ID</th>
                     <th>Action</th>
@@ -77,17 +46,22 @@
                     while($data_film = mysqli_fetch_assoc($result)){
                         $idfilm = $data_film['idfilm'];
                         $filmname = $data_film['namafilm'];
+                        $description = $data_film['deskripsi'];
                         $cover = $data_film['cover'];
                         $idsupplier = $data_film['idsupplier'];
-                        echo '<tr>
-                                <td>' .$idfilm. '</td>
-                                <td>' .$filmname. '</td>
-                                <td>' .$cover. '</td>
-                                <td>' .$idsupplier. '</td>
-                                <td><a href="update.php?updateid='.$idfilm.'"> EDIT </a> | 
-                                    <a href="delete.php?deleteid='.$idfilm.'"> DELETE </a>
-                                </td>
-                              </tr>';
+                        echo "
+                          <tr>
+                              <td>$data_film[idfilm]</td>
+                              <td>$data_film[namafilm]</td>
+                              <td width='600'>$data_film[deskripsi]</td>
+                              <td><img src='$data_film[foto]' width='100' height='100'></td>
+                              <td>$data_film[idsupplier]</td>
+                              <td>
+                              <a href='update.php?idfilm=$data_film[idfilm]'> Edit </a> ||
+                              <a href='view.php?idfilm=$data_film[idfilm]'> Hapus </a>
+                              </td>
+                          </tr>
+                          ";
                     }
                   ?>
                   </tbody>
@@ -105,32 +79,3 @@
     </section>
     <!-- /.content -->
   </div>
-  <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
-  <script src="assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-  <script src="assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-  <script src="assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-  <script src="assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-  <script src="assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-  <script src="assets/plugins/jszip/jszip.min.js"></script>
-  <script src="assets/plugins/pdfmake/pdfmake.min.js"></script>
-  <script src="assets/plugins/pdfmake/vfs_fonts.js"></script>
-  <script src="assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-  <script src="assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-  <script src="assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-  <script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
-</script>

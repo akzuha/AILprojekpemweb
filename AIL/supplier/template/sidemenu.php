@@ -28,7 +28,7 @@
             <a href="?page=dashboard" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Home
+                Dashboard
               </p>
             </a>
           </li>

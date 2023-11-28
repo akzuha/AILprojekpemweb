@@ -5,13 +5,14 @@ if(isset($_POST['submit'])){
     $idfilm = $_POST['idfilm'];
     $namafilm = $_POST['namafilm'];
     $cover = $_FILES['foto']['name'];
+    $description = $_POST['deskripsi'];
     if ($cover != '') {
-        $upload = 'images/' . $foto;
+        $upload = 'images/' . $cover;
         move_uploaded_file($_FILES["foto"]["tmp_name"], $upload);
     }
     $idsupplier = $_SESSION['idsupplier'];
 
-    $query = "INSERT INTO film (idfilm,namafilm,cover,idsupplier) VALUES ('$idfilm','$namafilm','$cover'.'$idsupplier')";
+    $query = "INSERT INTO film (idfilm,namafilm,deskripsi,cover,idsupplier) VALUES ('$idfilm','$namafilm','$description','$cover'.'$idsupplier')";
     $result = mysqli_query($koneksi,$query);
     if($result){
         ?><script>
@@ -19,7 +20,7 @@ if(isset($_POST['submit'])){
         </script>
         <?php
     }
-    header('location: index.php?page=list_film');
+    header('location: index.php?page=add_film');
 }
 ?>
 
@@ -54,29 +55,40 @@ if(isset($_POST['submit'])){
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="idfilm">Film ID</label>
-                    <input type="text" name="idfilm" class="form-control" id="idfilm" placeholder="Enter ID film">
-                  </div>
-                  <div class="form-group">
-                    <label for="namafilm">Film Name</label>
-                    <input type="text" name="namafilm" class="form-control" id="namafilm" placeholder="Enter film name">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputFile">Film Cover</label>
-                    <div class="input-group">
-                        <input type="file" name="foto" class="custom-file-input" id="foto" accept=".png, .jpg">
-                        <label class="custom-file-label" for="foto">Choose file</label>
-                    </div>
-                  </div>
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-                </div>
-              </form>
+              <form action='<?php $_SERVER['PHP_SELF']; ?>' name='insert' method='post' enctype='multipart/form-data'>
+    <table align="center">
+        <tr>
+            <td>Film ID</td>
+            <td>
+                <input type="text" name="idfilm">
+            </td>
+        </tr>
+        <tr>
+            <td>Film Name</td>
+            <td>
+                <input type="text" name="namafilm">
+            </td>
+        </tr>
+        <tr>
+            <td>Film Description</td>
+            <td>
+                <textarea name="deskripsi" id="deskripsi" cols="30" rows="10"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>Film Cover</td>
+            <td>
+                <input type="file" name="foto" accept=".png, .jpg">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" name="submit" value="Add Film Data">
+            </td>
+        </tr>
+    </table>
+</form>
             </div>
             <!-- /.card -->
           </div>

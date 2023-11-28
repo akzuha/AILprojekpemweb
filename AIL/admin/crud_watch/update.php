@@ -2,23 +2,20 @@
     include("../../koneksi.php");
 
     if(isset($_GET['updateid'])){
-        $id=$_GET['updateid'];
+        $idwatch=$_GET['updateid'];
     
-        $query = "SELECT * FROM user WHERE idakun='$id'";
+        $query = "SELECT * FROM user WHERE idwatch='$watch'";
         $result = mysqli_query($koneksi, $query);
         $data = mysqli_fetch_assoc($result);
     }
 
     if (isset($_POST['edit'])){
-        $idakun= $_POST['idakun'];
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $gender = $_POST['gender'];
-        $tanggal_lahir = $_POST['tanggal_lahir'];
-        $alamat = $_POST['alamat'];
-        $level = $_POST['level'];
+        $idwatch = $data_user['idwatch'];
+        $waktu = $data_user['waktu'];
+        $idfilm = $data_user['idfilm'];
+        $idakun = $data_user['idakun'];
         
-        $query = " UPDATE user SET idakun='$idakun', username='$username', password='$password', gender='$gender', tanggal_lahir='$tanggal_lahir', alamat='$alamat', level='$level' WHERE idakun='$idakun'";
+        $query = " UPDATE watch SET idwatch='$idwatch', waktu='$waktu', idfilm='$idfilm' WHERE idwatch='$idwatch'";
         $result = mysqli_query($koneksi,$query);
             if($result){
                 ?>

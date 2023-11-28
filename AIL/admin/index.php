@@ -24,6 +24,9 @@ switch ($_GET['page']){
     case 'list_genre';
         include 'crud_genre/list_genre.php';
         break;
+    case 'add_watch';
+        include 'crud_watch/add_watch.php';
+        break;
 }
 
 ?>

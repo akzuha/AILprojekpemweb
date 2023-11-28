@@ -1,25 +1,29 @@
 <?php 
 
 if(isset($_POST['submit'])){
-    $idfilm = $_POST['idfilm'];
-    $namafilm = $_POST['namafilm'];
-    $cover = $_FILES['foto']['name'];
-    $description = $_POST['deskripsi'];
-    if ($cover != '') {
-        $upload = 'images/' . $cover;
-        move_uploaded_file($_FILES["foto"]["tmp_name"], $upload);
-    }
-    $idsupplier = $_SESSION['idsupplier'];
+  $idwatch = $data_user['idwatch'];
+  $waktu = $data_user['waktu'];
+  $idfilm = $data_user['idfilm'];
+  $idakun = $data_user['idakun'];
 
-    $query = "INSERT INTO film (idfilm,namafilm,deskripsi,cover,idsupplier) VALUES ('$idfilm','$namafilm','$description','$cover','$idsupplier')";
-    $result = mysqli_query($koneksi,$query);
-    if($result){
-        ?><script>
-        alert('Film Berhasil Ditambahkan!');
-        document.location = 'index.php?page=list_film';
-        </script>
-        <?php
-    }
+  $idfilm = $SESSION['idfilm'];
+  $idakun = $SESSION['idakun'];
+
+  $query = "INSERT INTO menonton (idwatch,waktu,idfilm,idakun) VALUES ('$idwatch','$waktu','$description','$idfilm','$idakun')";
+  $result = mysqli_query($koneksi,$query);
+  if($result){
+      ?><script>
+      alert('Film Berhasil Ditambahkan!');
+      document.location = 'index.php?page=list_film';
+      </script>
+      <?php
+  }else {
+    ?><script>
+    alert('Film Berhasil Ditambahkan!');
+    document.location = 'index.php?page=list_film';
+    </script>
+    <?php
+  }
 }
 ?>
 

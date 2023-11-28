@@ -52,7 +52,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="?page=list_content" class="nav-link">
+            <a href="?page=list_genre" class="nav-link">
               <i class="nav-icon fas fa-clock"></i>
               <p>
                 Genre

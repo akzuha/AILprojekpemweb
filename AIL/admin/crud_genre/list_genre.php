@@ -23,7 +23,7 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Content Data Table</h3></br>
-                <a href="?page=add_user"><h3 class="card-title">Add content Data</h3></a>
+                <a href="index.php?page=add_genre"><h3 class="card-title">Add content Data</h3></a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -65,30 +65,23 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
-                        <th> id content </th>
-                        <th> deskripsi </th>
-                        <th> id film </th>
                         <th> id genre </th>
-                        <th> action </th>
+                        <th> genre </th>
                     </tr>
                     </thead>
                     <tbody>
                 <?php 
-                    $query = "SELECT * FROM `content`";
+                    $query = "SELECT * FROM `genre`";
                     $result = mysqli_query($koneksi,$query);
 
                     while($data_user = mysqli_fetch_assoc($result)){
-                        $idcontent = $data_user['idcontent'];
-                        $deskripsi = $data_user['deskripsi'];
-                        $idfilm = $data_user['idfilm'];
                         $idgenre = $data_user['idgenre'];
+                        $genre = $data_user['genre'];
                         echo '<tr>
-                                <td>' .$idcontent. '</td>
-                                <td>' .$deskripsi. '</td>
-                                <td>' .$idfilm. '</td>
                                 <td>' .$idgenre. '</td>
-                                <td><a href="crud_user/update.php?updateid='.$idcontent.'"> EDIT </a> | 
-                                    <a href="crud_user/delete.php?deleteid='.$idcontent.'"> DELETE </a>
+                                <td>' .$genre. '</td>
+                                <td><a href="crud_user/update.php?updateid='.$idgenre.'"> EDIT </a> | 
+                                    <a href="crud_user/delete.php?deleteid='.$idgenre.'"> DELETE </a>
                                 </td>
                               </tr>';
                     }

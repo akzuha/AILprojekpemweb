@@ -39,9 +39,10 @@
     <title>Update User</title>
 </head>
 <body>
-    <h1 align="center">mengubah data user</h1>
+    <h1>Edit User Data</h1>
+    <a href="../index.php?page=list_user"><h3>Back</h3></a>
     <form action="update.php" method="POST">
-        <table align="center">
+        <table>
             <tr>
                 <td>username</td>
                 <td><input type="text" name="username" value="<?php if(isset($_GET['updateid'])){echo $data['username'];} ?>"></td>

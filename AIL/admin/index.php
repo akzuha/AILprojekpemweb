@@ -24,6 +24,7 @@ switch ($_GET['page']){
     case 'list_watch';
         include 'crud_watch/list_watch.php';
 }
+
 ?>
 
 <?php

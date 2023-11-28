@@ -34,7 +34,8 @@
     <title>Update User</title>
 </head>
 <body>
-    <h1 align="center">mengubah data user</h1>
+    <h1 align="center">Edit Content Data</h1>
+    <a href="?page=list_content"></a><h1 align="center">Back</h1>
     <form action="update.php" method="POST">
         <table align="center">
             <tr>

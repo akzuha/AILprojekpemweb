@@ -71,7 +71,7 @@ if(isset($_POST['submit_user'])){
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit_user" class="btn btn-primary">Submit</button>
                 </div>
               </form>
             </div>

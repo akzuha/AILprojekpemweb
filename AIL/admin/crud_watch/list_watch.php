@@ -65,30 +65,33 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
-                        <th> id content </th>
-                        <th> deskripsi </th>
+                        <th> id menonton </th>
+                        <th> waktu </th>
                         <th> id film </th>
-                        <th> id genre </th>
-                        <th> action </th>
+                        <th> idfilm </th>
+                        <th> iduser </th>
                     </tr>
                     </thead>
                     <tbody>
                 <?php 
-                    $query = "SELECT * FROM `content`";
+                    session_start();
+                    $idfilm = $_SESSION['idfilm'];
+                    $iduser = $_SESSION['iduser'];
+                    $query = "SELECT * FROM `menonton`";
                     $result = mysqli_query($koneksi,$query);
 
                     while($data_user = mysqli_fetch_assoc($result)){
-                        $idcontent = $data_user['idcontent'];
-                        $deskripsi = $data_user['deskripsi'];
+                        $idmenonton = $data_user['idmenonton'];
+                        $waktu = $data_user['waktu'];
                         $idfilm = $data_user['idfilm'];
-                        $idgenre = $data_user['idgenre'];
+                        $iduser = $data_user['iduser'];
                         echo '<tr>
-                                <td>' .$idcontent. '</td>
-                                <td>' .$deskripsi. '</td>
+                                <td>' .$idmenonton. '</td>
+                                <td>' .$waktu. '</td>
                                 <td>' .$idfilm. '</td>
-                                <td>' .$idgenre. '</td>
-                                <td><a href="crud_user/update.php?updateid='.$idcontent.'"> EDIT </a> | 
-                                    <a href="crud_user/delete.php?deleteid='.$idcontent.'"> DELETE </a>
+                                <td>' .$iduser. '</td>
+                                <td><a href="crud_user/update.php?updateid='.$idmenonton.'"> EDIT </a> | 
+                                    <a href="crud_user/delete.php?deleteid='.$idmenonton.'"> DELETE </a>
                                 </td>
                               </tr>';
                     }

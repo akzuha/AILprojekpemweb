@@ -27,6 +27,9 @@ switch ($_GET['page']){
     case 'list_genre';
         include 'crud_content/list_content.php';
         break;
+        case 'add_user';
+        include 'crud_content/list_content.php';
+        break;
 }
 
 ?>

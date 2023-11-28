@@ -22,8 +22,8 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">User Data Table</h3></br>
-                <a href="crud_user/add_user.php"><h3 class="card-title">Add User Data</h3></a>
+                <h3 class="card-title">Content Data Table</h3></br>
+                <a href="?page=add_user"><h3 class="card-title">Add content Data</h3></a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -60,46 +60,41 @@
                     </div>
                   </div>
                 </div>
+
+
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
-                        <th> ID </th>
-                        <th> Username </th>
-                        <th> Password </th>
-                        <th> Gender </th>
-                        <th> Tanggal lahir </th>
-                        <th> Alamat </th>
-                        <th> Level </th>
-                        <th> Action </th>
+                        <th> id content </th>
+                        <th> deskripsi </th>
+                        <th> id film </th>
+                        <th> id genre </th>
+                        <th> action </th>
                     </tr>
                     </thead>
                     <tbody>
                 <?php 
-                    $query = "SELECT * FROM `user`";
+                    $query = "SELECT * FROM `content`";
                     $result = mysqli_query($koneksi,$query);
 
                     while($data_user = mysqli_fetch_assoc($result)){
-                        $idakun = $data_user['idakun'];
-                        $username = $data_user['username'];
-                        $password = $data_user['password'];
-                        $gender = $data_user['gender'];
-                        $tanggal_lahir = $data_user['tanggal_lahir'];
-                        $alamat = $data_user['alamat'];
-                        $level = $data_user['level'];
+                        $idcontent = $data_user['idcontent'];
+                        $deskripsi = $data_user['deskripsi'];
+                        $idfilm = $data_user['idfilm'];
+                        $idgenre = $data_user['idgenre'];
                         echo '<tr>
-                                <td>' .$idakun. '</td>
-                                <td>' .$username. '</td>
-                                <td>' .$password. '</td>
-                                <td>' .$gender. '</td>
-                                <td>' .$tanggal_lahir. '</td>
-                                <td>' .$alamat. '</td>
-                                <td>' .$level. '</td>
-                                <td><a href="crud_user/update.php?updateid='.$idakun.'"> EDIT </a> | 
-                                    <a href="crud_user/delete.php?deleteid='.$idakun.'"> DELETE </a>
+                                <td>' .$idcontent. '</td>
+                                <td>' .$deskripsi. '</td>
+                                <td>' .$idfilm. '</td>
+                                <td>' .$idgenre. '</td>
+                                <td><a href="crud_user/update.php?updateid='.$idcontent.'"> EDIT </a> | 
+                                    <a href="crud_user/delete.php?deleteid='.$idcontent.'"> DELETE </a>
                                 </td>
                               </tr>';
                     }
-                ?>  
+                ?>
+                
+                
                     </tbody>
                 </table>
               </div>

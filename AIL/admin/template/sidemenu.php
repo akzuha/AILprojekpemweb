@@ -59,6 +59,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="?page=list_content" class="nav-link">
+              <i class="nav-icon fas fa-clock"></i>
+              <p>
+                Genre
+              </p>
+            </a>
+          </li>
           <li class="nav-header">SETTINGS</li>
           <li class="nav-item">
             <a href="../logout.php" class="nav-link">

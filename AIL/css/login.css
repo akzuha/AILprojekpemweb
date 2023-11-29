@@ -7,14 +7,24 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+:root{
+    --primary-color: #e05414;
+    --primary-dark-color: #e04700;
+    --light-gray: #cecece;
+    --dark-grey: #5d7280;
+    --section-bg: #f7f8f8;
+}
+
 body{
-    background-color: #c9d6ff;
-    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    background-image: url('../images/backgroundlogin.jpg');
+    background-size: cover;
+    background-position: center;
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
+    height: 110vh;
 }
 
 .container{
@@ -47,7 +57,7 @@ body{
 }
 
 .container button{
-    background-color: #512da8;
+    background-color: #e05414;
     color: #fff;
     font-size: 12px;
     padding: 10px 45px;
@@ -161,9 +171,9 @@ body{
 }
 
 .toggle{
-    background-color: #512da8;
+    background-color: #e05414;
     height: 100%;
-    background: linear-gradient(to right, #5c6bc0, #512da8);
+    background: linear-gradient(to right, #e05414, #e04700);
     color: #fff;
     position: relative;
     left:-100%;

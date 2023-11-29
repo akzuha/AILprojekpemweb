@@ -13,7 +13,7 @@
                         $filmname = $data_film['namafilm'];
                         $description = $data_film['deskripsi'];
                         $cover = $data_film['cover'];
-                        $idsupplier = $data_film['idsupplier'];
+                        $video_url = $data_film['video_url'];
                         echo "
                         
                         <!--Service 1-->
@@ -22,7 +22,6 @@
                                 <img src='../supplier/images/$data_film[cover]' width='100' height='100'>
                             </div>
                             <div class='info'>
-                                
                                 <h3>$data_film[namafilm]</h3>
                                 <p>
                                 $data_film[deskripsi]

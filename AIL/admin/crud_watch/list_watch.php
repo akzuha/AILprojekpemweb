@@ -65,28 +65,31 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
-                        <th> id watch </th>
-                        <th> waktu </th>
-                        <th> id film </th>
-                        <th> id akun </th>
+
+                        <th> user </th>
+                        <th> nama film </th>
+                        <th> duration</th>
                         <th> action </th>
                     </tr>
                     </thead>
                     <tbody>
                 <?php 
-                    $idfilm = $SESSION['idfilm'];
-                    $idakun = $SESSION['idakun'];
-                    $query = "SELECT * FROM `watch`";
+                    $query = "SELECT watch.idwatch, watch.waktu, film.idfilm, user.idakun FROM watch
+                     JOIN film ON watch.idfilm = film.idfilm
+                     JOIN user ON watch.idakun = user.idakun";
                     $result = mysqli_query($koneksi,$query);
 
                     while($data_user = mysqli_fetch_assoc($result)){
                         $idwatch = $data_user['idwatch'];
                         $waktu = $data_user['waktu'];
+                        $idakun = $data_user['idakun'];
+                        $idakun = $data_user['username'];
+                        $idfilm = $data_user['idfilm'];
+                        $idfilm = $data_user['namafilm'];
                         echo '<tr>
-                                <td>' .$idwatch. '</td>
-                                <td>' .$waktu. '</td>
-                                <td>' .$idfilm. '</td>
-                                <td>' .$idakun. '</td>
+                                <td>' .$data_user['username']. '</td>
+                                <td>' .$data_user['namafilm']. '</td>
+                                <td>' .$data_user['waktu']. '</td>
                                 <td><a href="crud_user/update.php?updateid='.$idwatch.'"></a> | 
                                     <a href="crud_user/delete.php?deleteid='.$idwatch.'"></a>
                                 </td>

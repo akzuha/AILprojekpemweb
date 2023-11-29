@@ -1,22 +1,22 @@
 <?php 
+include('koneksi.php');
 
 if(isset($_POST['submit'])){
-    $idfilm = $_POST['idfilm'];
-    $namafilm = $_POST['namafilm'];
-    $cover = $_FILES['foto']['name'];
-    $description = $_POST['deskripsi'];
-    if ($cover != '') {
-        $upload = 'images/' . $cover;
-        move_uploaded_file($_FILES["foto"]["tmp_name"], $upload);
-    }
-    $idsupplier = $_SESSION['idsupplier'];
+    $idakun = $_POST['idakun'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $gender = $_POST['gender'];
+    $tanggal_lahir = $_POST['tanggal_lahir'];
+    $alamat = $_POST['alamat'];
+    $level = $_POST['level'];
 
-    $query = "INSERT INTO film (idfilm,namafilm,deskripsi,cover,idsupplier) VALUES ('$idfilm','$namafilm','$description','$cover','$idsupplier')";
+
+    $query = "INSERT INTO user (idakun, username, password, gender, tanggal_lahir, alamat, level) VALUES ('$idakun', '$username', '$password', '$gender', '$tanggal_lahir', '$alamat', '$level')";
     $result = mysqli_query($koneksi,$query);
     if($result){
         ?><script>
-        alert('Film Berhasil Ditambahkan!');
-        document.location = 'index.php?page=list_film';
+        alert('user Berhasil Ditambahkan!');
+        document.location = 'index.php?page=list_user';
         </script>
         <?php
     }
@@ -30,7 +30,7 @@ if(isset($_POST['submit'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 align="center">ADD FILM</h1>
+            <h1 align="center">ADD user</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -50,7 +50,7 @@ if(isset($_POST['submit'])){
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Form To Add Film</h3>
+                <h3 class="card-title">Form To Add user</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -114,7 +114,8 @@ if(isset($_POST['submit'])){
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" name="submit" value="edit"></td>
+                <td><input type="hidden" name="idakun"></td>
+                <td><input type="submit" name="submit" value="tambahkan"></td>
             </tr>
     </table>
 </form>

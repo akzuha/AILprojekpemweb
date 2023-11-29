@@ -2,9 +2,9 @@
     include("../../koneksi.php");
 
     if(isset($_GET['deleteid'])){
-        $idakun=$_GET['deleteid'];
+        $idgenre=$_GET['deleteid'];
 
-        $query = "DELETE from user WHERE idakun='$idakun'";
+        $query = "DELETE from genre WHERE idgenre='$idgenre'";
         $result = mysqli_query($koneksi,$query);
         if($result){
             echo "deleted succesfully";

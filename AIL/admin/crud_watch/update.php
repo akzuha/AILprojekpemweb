@@ -12,8 +12,8 @@
     if (isset($_POST['edit'])){
         $idwatch = $data_user['idwatch'];
         $waktu = $data_user['waktu'];
-        $idfilm = $data_user['idfilm'];
-        $idakun = $data_user['idakun'];
+        // $idfilm = $data_user['idfilm'];
+        // $idakun = $data_user['idakun'];
         
         $query = " UPDATE watch SET idwatch='$idwatch', waktu='$waktu', idfilm='$idfilm' WHERE idwatch='$idwatch'";
         $result = mysqli_query($koneksi,$query);

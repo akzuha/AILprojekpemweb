@@ -3,13 +3,11 @@
 if(isset($_POST['submit'])){
   $idwatch = $data_user['idwatch'];
   $waktu = $data_user['waktu'];
-  $idfilm = $data_user['idfilm'];
-  $idakun = $data_user['idakun'];
 
   $idfilm = $SESSION['idfilm'];
   $idakun = $SESSION['idakun'];
 
-  $query = "INSERT INTO menonton (idwatch,waktu,idfilm,idakun) VALUES ('$idwatch','$waktu','$description','$idfilm','$idakun')";
+  $query = "INSERT INTO menonton (idwatch,waktu,idfilm,idakun) VALUES ('$idwatch','$waktu','$idfilm','$idakun')";
   $result = mysqli_query($koneksi,$query);
   if($result){
       ?><script>
@@ -61,33 +59,33 @@ if(isset($_POST['submit'])){
               <form action='<?php $_SERVER['PHP_SELF']; ?>' name='insert' method='post' enctype='multipart/form-data'>
     <table align="center">
         <tr>
-            <td>Film ID</td>
+            <td>id watch</td>
             <td>
-                <input type="text" name="idfilm">
+                <input type="text" name="idwatch">
             </td>
         </tr>
         <tr>
-            <td>Film Name</td>
+            <td>durasi</td>
             <td>
-                <input type="text" name="namafilm">
+                <input type="text" name="waktu">
             </td>
         </tr>
         <tr>
-            <td>Film Description</td>
+            <td>id film</td>
             <td>
-                <textarea name="deskripsi" id="deskripsi" cols="30" rows="10"></textarea>
+              <input type="text" name="idfilm">
             </td>
         </tr>
         <tr>
-            <td>Film Cover</td>
+            <td>id akun</td>
             <td>
-                <input type="file" name="foto" accept=".png, .jpg">
+                <input type="text" name="idakun">
             </td>
         </tr>
         <tr>
             <td></td>
             <td>
-                <input type="submit" name="submit" value="Add Film Data">
+                <input type="submit" name="submit" value="Add watch data">
             </td>
         </tr>
     </table>
@@ -101,4 +99,4 @@ if(isset($_POST['submit'])){
     </section>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
+  /.content-wrapper

@@ -2,9 +2,9 @@
     include("../../koneksi.php");
 
     if(isset($_GET['updateid'])){
-        $id=$_GET['updateid'];
+        $idakun=$_GET['updateid'];
     
-        $query = "SELECT * FROM user WHERE idakun='$id'";
+        $query = "SELECT * FROM user WHERE idakun='$idakun'";
         $result = mysqli_query($koneksi, $query);
         $data = mysqli_fetch_assoc($result);
     }
@@ -54,21 +54,9 @@
             <tr>
                 <td>gender</td>
                 <td><select name="gender" id="gender" value="">
-                    <?php 
-                    if(isset($_GET['updateid'])){
-                        if($data['gender'] == "Laki-laki"){
-                            echo "<option value='Laki-laki' selected> Laki-laki </option>";
-                            echo "<option value='Perempuan'> Perempuan </option>";
-                        }elseif($data['gender'] == "Perempuan"){
-                            echo "<option value='Laki-laki'> Laki-laki </option>";
-                            echo "<option value='Perempuan' selected> Perempuan </option>";
-                        }
-                    }else{
-                        echo "<option value='Laki-laki'> Laki-laki </option>";
-                        echo "<option value='Perempuan'> Perempuan </option>";
-                    }
-                    ?>                    
-                </select>
+                    <option value="Laki-laki" <?php echo ($data['gender'] == 'Laki-laki') ? 'selected' : ''; ?>>Laki-laki</option>
+                    <option value="Perempuan" <?php echo ($data['gender'] == 'Perempuan') ? 'selected' : ''; ?>>Perempuan</option>
+                    </select>                  
                 </td>
             </tr>
             <tr>

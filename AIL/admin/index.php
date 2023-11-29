@@ -24,14 +24,17 @@ switch ($_GET['page']){
     case 'list_genre';
         include 'crud_genre/list_genre.php';
         break;
+    case 'list_film';
+        include 'crud_film/list_film.php';
+        break;
     case 'add_watch';
         include 'crud_watch/add_watch.php';
         break;
     case 'add_genre';
         include 'crud_genre/add_genre.php';
         break;
-    case 'list_film';
-        include 'crud_film/list_film.php';
+    case 'add_film';
+        include 'crud_film/add_film.php';
         break;
 }
 

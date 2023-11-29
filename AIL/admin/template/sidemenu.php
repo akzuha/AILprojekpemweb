@@ -44,6 +44,14 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="?page=list_film" class="nav-link">
+              <i class="nav-icon fas fa-solid fa-film"></i>
+              <p>
+                Data Film
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="?page=list_watch" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>

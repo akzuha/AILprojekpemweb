@@ -1,27 +1,25 @@
 <?php 
 
 if(isset($_POST['submit'])){
-  $idfilm = $data_user['idfilm'];
-  $namafilm= $data_user['namafilm'];
-  $deskripsi= $data_user['deskripsi'];
-  $cover= $data_user['cover'];
-  $idsupplier = $SESSION['idsupplier'];
-
-  $query = "INSERT INTO film (idfilm, namafilm, deskripsi, deskripsi, cover, idsupplier ) VALUES ('$idfilm','$namafilm,'$deskripsi','$cover,'$idsupplier')";
-  $result = mysqli_query($koneksi,$query);
-  if($result){
-      ?><script>
-      alert('Film Berhasil Ditambahkan!');
-      document.location = 'index.php?page=list_film';
-      </script>
-      <?php
-  }else {
-    ?><script>
-    alert('Film Berhasil Ditambahkan!');
-    document.location = 'index.php?page=list_film';
-    </script>
-    <?php
-  }
+    $idfilm = $_POST['idfilm'];
+    $namafilm = $_POST['namafilm'];
+    $cover = $_FILES['foto']['name'];
+    $description = $_POST['deskripsi'];
+    if ($cover != '') {
+        $upload = 'crud_film/images/' . $cover;
+        move_uploaded_file($_FILES["foto"]["tmp_name"], $upload);
+    }
+    $idsupplier = $_SESSION['idsupplier'];
+    
+    $query = "INSERT INTO film (idfilm,namafilm,deskripsi,cover,idsupplier) VALUES ('$idfilm','$namafilm','$description','$cover','$idsupplier')";
+    $result = mysqli_query($koneksi,$query);
+    if($result){
+        ?><script>
+        alert('Film Berhasil Ditambahkan!');
+        document.location = '../index.php?page=list_film';
+        </script>
+        <?php
+    }
 }
 ?>
 
@@ -59,33 +57,33 @@ if(isset($_POST['submit'])){
               <form action='<?php $_SERVER['PHP_SELF']; ?>' name='insert' method='post' enctype='multipart/form-data'>
     <table align="center">
         <tr>
-            <td>id film</td>
+            <td>Film ID</td>
             <td>
-                <input type="text" name="idwatch">
+                <input type="text" name="idfilm">
             </td>
         </tr>
         <tr>
-            <td>nama film</td>
+            <td>Film Name</td>
             <td>
-                <input type="text" name="waktu">
+                <input type="text" name="namafilm">
             </td>
         </tr>
         <tr>
-            <td>deskripsi</td>
+            <td>Film Description</td>
             <td>
-              <input type="text" name="idfilm">
+                <textarea name="deskripsi" id="deskripsi" cols="30" rows="10"></textarea>
             </td>
         </tr>
         <tr>
-            <td>cover</td>
+            <td>Film Cover</td>
             <td>
-                <input type="text" name="idakun">
+                <input type="file" name="foto" accept=".png, .jpg, .jpeg">
             </td>
         </tr>
         <tr>
             <td></td>
             <td>
-                <input type="submit" name="submit" value="Add watch data">
+                <input type="submit" name="submit" value="Add Film Data">
             </td>
         </tr>
     </table>
@@ -99,4 +97,4 @@ if(isset($_POST['submit'])){
     </section>
     <!-- /.content -->
   </div>
-  /.content-wrapper
+  <!-- /.content-wrapper -->

@@ -39,6 +39,7 @@
                 Data Film
               </p>
             </a>
+          </li>
           <li class="nav-header">SETTINGS</li>
           <li class="nav-item">
             <a href="../logout.php" class="nav-link">

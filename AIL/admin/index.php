@@ -30,6 +30,9 @@ switch ($_GET['page']){
     case 'add_genre';
         include 'crud_genre/add_genre.php';
         break;
+    case 'list_film';
+        include 'crud_film/list_film.php';
+        break;
 }
 
 ?>

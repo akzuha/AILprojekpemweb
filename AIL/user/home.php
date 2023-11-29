@@ -1,4 +1,9 @@
     <!-- main -->
+    <?php 
+    $film = "SELECT * FROM film ORDER BY idfilm DESC";
+    $query = mysqli_query($koneksi, $film);
+    $data_film = mysqli_fetch_array($query);
+    ?>
     <main>
         <!-- main -->
         <section id="hero" class="hero">
@@ -9,7 +14,7 @@
                 <p>
                     Tired getting home after work? Watch some Film and Chill with AIL ID.
                 </p>
-                <a href="#" class="action_btn">Get Started</a>
+                <a href="?page=film" class="action_btn">Get Started</a>
             </div>
         </section>
         <!-- services -->
@@ -19,43 +24,43 @@
                 <!--Service 1-->
                 <div class="service">
                     <div class="image">
-                        <img src="../images/FOTO CV RIAN.jpg" alt="">
+                        <img src="../supplier/images/<?php echo $data_film['cover']; ?>" alt="">
                     </div>
                     <div class="info">
                         <div class="num">#1</div>
-                        <h3>nama film</h3>
+                        <h3><?php echo $data_film['namafilm']; ?></h3>
                         <p>
-                            deskripsi singkat film
+                            <?php echo $data_film['deskripsi']; ?>
                         </p>
-                        <button class="action_btn">Read More</button>
+                        <a href="?page=film"><button class="action_btn">Read More</button></a>
                     </div>
                 </div>
                 <!--Service 2-->
                 <div class="service service2">
                     <div class="info">
                         <div class="num">#2</div>
-                        <h3>nama film</h3>
+                        <h3><?php echo $data_film['namafilm']; ?></h3>
                         <p>
-                            deskripsi singkat film
+                            <?php echo $data_film['deskripsi']; ?>
                         </p>
-                        <button class="action_btn">Read More</button>
+                        <a href="?page=film"><button class="action_btn">Read More</button></a>
                     </div>
                     <div class="image">
-                        <img src="assets/Foto levi.jpg" alt="">
+                        <img src="../supplier/images/<?php echo $data_film['cover']; ?>" alt="">
                     </div>
                 </div>
                 <!--Service 2-->
                 <div class="service">
                     <div class="image">
-                        <img src="assets/Foto Sultan.jpg" alt="">
+                        <img src="../supplier/images/<?php echo $data_film['cover']; ?>" alt="">
                     </div>
                     <div class="info">
                         <div class="num">#3</div>
-                        <h3>nama film</h3>
+                        <h3><?php echo $data_film['namafilm']; ?></h3>
                         <p>
-                            deskripsi singkat film
+                        <?php echo $data_film['deskripsi']; ?>
                         </p>
-                        <button class="action_btn">Read More</button>
+                        <a href="?page=film"><button class="action_btn">Read More</button></a>
                     </div>
                 </div>
             </div>

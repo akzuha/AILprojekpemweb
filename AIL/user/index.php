@@ -20,6 +20,7 @@ switch ($_GET['page']){
     case 'film';
         include 'film.php';
         break;
+    
 }
 ?>
 

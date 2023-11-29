@@ -41,12 +41,6 @@
             </a>
           <li class="nav-header">SETTINGS</li>
           <li class="nav-item">
-            <a href="?page=profil" class="nav-link">
-              <i class="nav-icon fas fa-solid fa-user"></i>
-              <p>Profile Setting</p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="../logout.php" class="nav-link">
               <i class="nav-icon fas fa-terminal"></i>
               <p>Sign Out</p>

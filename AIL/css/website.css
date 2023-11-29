@@ -44,7 +44,7 @@ section h2{
 /* header */
 header{
     position: absolute;
-    background-color: transparent;
+    background-color: none;
     top: 0;
     left: 0;
     width: 100%;
@@ -52,7 +52,6 @@ header{
 }
 
 .navbar{
-    
     min-height: 70px;
     max-width: 1400px;
     margin: 0 auto;

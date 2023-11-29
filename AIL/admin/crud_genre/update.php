@@ -13,13 +13,13 @@
         $idgenre= $_POST['idgenre'];
         $genre = $_POST['genre'];
 
-        $query = " UPDATE user SET idgenre='$idgenre', genre='$genre' WHERE idgenre='$idgenre'";
+        $query = " UPDATE genre SET idgenre='$idgenre', genre='$genre' WHERE idgenre='$idgenre'";
         $result = mysqli_query($koneksi,$query);
             if($result){
                 ?>
                 <script>
                     alert('edit sucessfull!');
-                    document.location = '../index.php?page=list_user';
+                    document.location = '../index.php?page=list_genre';
                 </script>";
                 <?php
             }else{
@@ -34,18 +34,16 @@
     <title>Update genre</title>
 </head>
 <body>
-    <h1>Edit User Data</h1>
+    <h1>Edit genre Data</h1>
     <a href="../index.php?page=list_user"><h3>Back</h3></a>
     <form action="update.php" method="POST">
         <table>
             <tr>
-                <td>id genre><input type="text" name="idgenre" value="<?php if(isset($_GET['updateid'])){echo $data['idgenre'];} ?>"></td>
+                <td>id genre<input type="text" name="idgenre" value="<?php if(isset($_GET['updateid'])){echo $data['idgenre'];} ?>"></td>
             </tr>
             <tr>
-                <td>genre</td>
-                <td><input type="text" name="genre" value="<?php if(isset($_GET['updateid'])){echo $data['genre'];} ?>"></td>
+                <td>genre<input type="text" name="genre" value="<?php if(isset($_GET['updateid'])){echo $data['genre'];} ?>"></td>
             </tr>
-            <tr>
             <tr>
                 <td><input type="submit" name="edit" value="edit"></td>
             </tr>

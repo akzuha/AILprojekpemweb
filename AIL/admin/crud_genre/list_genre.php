@@ -22,8 +22,8 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Content Data Table</h3></br>
-                <a href="index.php?page=add_genre"><h3 class="card-title">Add content Data</h3></a>
+                <h3 class="card-title">genre Data Table</h3></br>
+                <a href="index.php?page=add_genre"><h3 class="card-title">Add genre Data</h3></a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -80,8 +80,8 @@
                         echo '<tr>
                                 <td>' .$idgenre. '</td>
                                 <td>' .$genre. '</td>
-                                <td><a href="crud_user/update.php?updateid='.$idgenre.'"> EDIT </a> | 
-                                    <a href="crud_user/delete.php?deleteid='.$idgenre.'"> DELETE </a>
+                                <td><a href="crud_genre/update.php?updateid='.$idgenre.'"> EDIT </a> | 
+                                    <a href="crud_genre/delete.php?deleteid='.$idgenre.'"> DELETE </a>
                                 </td>
                               </tr>';
                     }

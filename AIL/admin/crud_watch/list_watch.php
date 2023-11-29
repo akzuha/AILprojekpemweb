@@ -23,7 +23,7 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">watch Data Table</h3></br>
-                <a href="index.php?page=add_watch"><h3 class="card-title">Add watch Data</h3></a>
+                <a href="index.php?page=add_watch"><h3 class="card-title"></h3></a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -82,15 +82,13 @@
                     while($data_user = mysqli_fetch_assoc($result)){
                         $idwatch = $data_user['idwatch'];
                         $waktu = $data_user['waktu'];
-                        $idfilm = $data_user['idfilm'];
-                        $idakun = $data_user['idakun'];
                         echo '<tr>
                                 <td>' .$idwatch. '</td>
                                 <td>' .$waktu. '</td>
                                 <td>' .$idfilm. '</td>
                                 <td>' .$idakun. '</td>
-                                <td><a href="crud_user/update.php?updateid='.$idwatch.'"> EDIT </a> | 
-                                    <a href="crud_user/delete.php?deleteid='.$idwatch.'"> DELETE </a>
+                                <td><a href="crud_user/update.php?updateid='.$idwatch.'"></a> | 
+                                    <a href="crud_user/delete.php?deleteid='.$idwatch.'"></a>
                                 </td>
                               </tr>';
                     }

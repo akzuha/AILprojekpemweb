@@ -1,26 +1,21 @@
 <?php 
 
 if(isset($_POST['submit'])){
-  $idwatch = $data_user['idwatch'];
-  $waktu = $data_user['waktu'];
-  $idfilm = $data_user['idfilm'];
-  $idakun = $data_user['idakun'];
+  $idgenre= $_POST['idgenre'];
+  $genre = $_POST['genre'];
 
-  $idfilm = $SESSION['idfilm'];
-  $idakun = $SESSION['idakun'];
-
-  $query = "INSERT INTO menonton (idwatch,waktu,idfilm,idakun) VALUES ('$idwatch','$waktu','$description','$idfilm','$idakun')";
+  $query = "INSERT INTO genre (idgenre,genre) VALUES ('$idgenre','$genre')";
   $result = mysqli_query($koneksi,$query);
   if($result){
       ?><script>
-      alert('Film Berhasil Ditambahkan!');
-      document.location = 'index.php?page=list_film';
+      alert('genre Berhasil Ditambahkan!');
+      document.location = 'index.php?page=list_genre';
       </script>
       <?php
   }else {
     ?><script>
-    alert('Film Berhasil Ditambahkan!');
-    document.location = 'index.php?page=list_film';
+    alert('genre Berhasil Ditambahkan!');
+    document.location = 'index.php?page=list_genre';
     </script>
     <?php
   }
@@ -34,7 +29,7 @@ if(isset($_POST['submit'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 align="center">ADD FILM</h1>
+            <h1 align="center">ADD genre</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -54,40 +49,28 @@ if(isset($_POST['submit'])){
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Form To Add Film</h3>
+                <h3 class="card-title">Form To Add genre</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form action='<?php $_SERVER['PHP_SELF']; ?>' name='insert' method='post' enctype='multipart/form-data'>
     <table align="center">
         <tr>
-            <td>Film ID</td>
+            <td>id genre</td>
             <td>
-                <input type="text" name="idfilm">
+                <input type="text" name="idgenre">
             </td>
         </tr>
         <tr>
-            <td>Film Name</td>
+            <td>genre</td>
             <td>
-                <input type="text" name="namafilm">
-            </td>
-        </tr>
-        <tr>
-            <td>Film Description</td>
-            <td>
-                <textarea name="deskripsi" id="deskripsi" cols="30" rows="10"></textarea>
-            </td>
-        </tr>
-        <tr>
-            <td>Film Cover</td>
-            <td>
-                <input type="file" name="foto" accept=".png, .jpg">
+                <input type="text" name="genre">
             </td>
         </tr>
         <tr>
             <td></td>
             <td>
-                <input type="submit" name="submit" value="Add Film Data">
+                <input type="submit" name="submit" value="Add genreData">
             </td>
         </tr>
     </table>

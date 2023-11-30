@@ -7,7 +7,7 @@ if(isset($_POST['submit'])){
   $idfilm = $SESSION['idfilm'];
   $idakun = $SESSION['idakun'];
 
-  $query = "INSERT INTO menonton (idwatch,waktu,idfilm,idakun) VALUES ('$idwatch','$waktu','$idfilm','$idakun')";
+  $query = "INSERT INTO watch (idwatch,waktu,idfilm,idakun) VALUES ('$idwatch','$waktu','$idfilm','$idakun')";
   $result = mysqli_query($koneksi,$query);
   if($result){
       ?><script>

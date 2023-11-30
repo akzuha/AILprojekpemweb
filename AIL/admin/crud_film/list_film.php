@@ -9,7 +9,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">DataTables</li>
+              <li class="breadcrumb-item active">Film</li>
             </ol>
           </div>
         </div>
@@ -41,7 +41,10 @@
                   </thead>
                   <tbody>
                   <?php 
-                    $query = "SELECT film.idfilm, film.namafilm, film.deskripsi, film.cover, film.idsupplier, supplier.username, genre.genre FROM film JOIN supplier ON film.idsupplier = supplier.idsupplier JOIN genre ON film.idgenre = genre.idgenre";
+                    $query = "SELECT film.idfilm, film.namafilm, film.deskripsi, film.cover, film.idsupplier, supplier.username, genre.genre 
+                    FROM film 
+                    JOIN supplier ON film.idsupplier = supplier.idsupplier 
+                    JOIN genre ON film.idgenre = genre.idgenre";
                     $result = mysqli_query($koneksi,$query);
 
                     while($data_film = mysqli_fetch_assoc($result)){

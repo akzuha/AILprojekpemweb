@@ -41,6 +41,21 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+              <div class="inner">
+                <h3><?php echo $jumlah_watch ?></h3>
+                <p>Total Watch</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="?page=list_watch" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-blue">
@@ -67,24 +82,9 @@
               <a href="?page=list_supplier" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-green">
-              <div class="inner">
-                <h3><?php echo $jumlah_watch ?></h3>
-                <p>Total Watch</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="?page=list_watch" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-white">
+            <div class="small-box bg-pink">
               <div class="inner">
                 <h3><?php echo $jumlah_user ?></h3>
                 <p>Total User</p>
@@ -98,7 +98,7 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-pink">
+            <div class="small-box bg-white">
               <div class="inner">
                 <h3><?php echo $jumlah_genre ?></h3>
                 <p>Total Genre</p>

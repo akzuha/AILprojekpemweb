@@ -9,7 +9,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">User</li>
+              <li class="breadcrumb-item active">Watch</li>
             </ol>
           </div>
         </div>
@@ -22,13 +22,13 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">watch Data Table</h3></br>
+                <h3 class="card-title">Watch Data Table</h3></br>
                 <a href="index.php?page=add_watch"><h3 class="card-title"></h3></a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                <div class="row">
+                
+              <div class="row">
                   <div class="col-sm-12 col-md-6">
                     <div class="dt-buttons btn-group flex-wrap">               
                       <button class="btn btn-secondary buttons-copy buttons-html5" tabindex="0" aria-controls="example1" type="button">
@@ -61,37 +61,34 @@
                   </div>
                 </div>
 
-
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
-
-                        <th> user </th>
-                        <th> nama film </th>
-                        <th> duration</th>
-                        <th> action </th>
+                        <th> User Name </th>
+                        <th> Film Name </th>
+                        <th> Last Watched </th>
+                        <th> Duration </th>
                     </tr>
                     </thead>
                     <tbody>
                 <?php 
-                    $query = "SELECT watch.idwatch, watch.waktu, film.idfilm, user.idakun FROM watch
-                     JOIN film ON watch.idfilm = film.idfilm
-                     JOIN user ON watch.idakun = user.idakun";
+                    $query = "SELECT watch.idwatch, watch.lastwatch,  film.namafilm, user.username 
+                    FROM watch 
+                    JOIN film ON watch.idfilm = film.idfilm
+                    JOIN user ON watch.idakun = user.idakun";
                     $result = mysqli_query($koneksi,$query);
 
-                    while($data_user = mysqli_fetch_assoc($result)){
-                        $idwatch = $data_user['idwatch'];
-                        $waktu = $data_user['waktu'];
-                        $idakun = $data_user['idakun'];
-                        $idakun = $data_user['username'];
-                        $idfilm = $data_user['idfilm'];
-                        $idfilm = $data_user['namafilm'];
+                    while($data_watch = mysqli_fetch_assoc($result)){
+                        $username = $data_watch['username'];
+                        $namafilm = $data_watch['namafilm'];
+                        $lastwatch = $data_watch['lastwatch'];
+                        $durasi = $data_watch['durasi'];
                         echo '<tr>
-                                <td>' .$data_user['username']. '</td>
-                                <td>' .$data_user['namafilm']. '</td>
-                                <td>' .$data_user['waktu']. '</td>
-                                <td><a href="crud_user/update.php?updateid='.$idwatch.'"></a> | 
-                                    <a href="crud_user/delete.php?deleteid='.$idwatch.'"></a>
+                                <td>' .$data_watch['username']. '</td>
+                                <td>' .$data_watch['namafilm']. '</td>
+                                <td>' .$data_watch['waktu']. '</td>
+                                <td><a href="crud_watch/update.php?updateid='.$idwatch.'"></a> | 
+                                    <a href="crud_watch/delete.php?deleteid='.$idwatch.'"></a>
                                 </td>
                               </tr>';
                     }

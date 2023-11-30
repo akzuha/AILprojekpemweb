@@ -24,7 +24,7 @@
                                 <p style='color: black;'>
                                 $data_film[deskripsi]
                                 </p>
-                                <a href='?page=$data_film[namafilm]'><button class='action_btn'>Watch Now</button></a>
+                                <a href='video.php?page=$data_film[idfilm]'><button class='action_btn'>Watch Now</button></a>
                             </div>
                         </div>
                     </div>

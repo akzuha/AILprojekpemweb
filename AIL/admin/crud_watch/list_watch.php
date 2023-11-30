@@ -64,8 +64,8 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
-                        <th> User Name </th>
                         <th> Film Name </th>
+                        <th> Username </th>
                         <th> Last Watched </th>
                         <th> Duration </th>
                     </tr>
@@ -84,8 +84,8 @@
                         $lastwatch = $data_watch['lastwatch'];
                         $durasi = $data_watch['durasi'];
                         echo '<tr>
-                                <td>' .$data_watch['username']. '</td>
                                 <td>' .$data_watch['namafilm']. '</td>
+                                <td>' .$data_watch['username']. '</td>
                                 <td>' .$data_watch['waktu']. '</td>
                                 <td><a href="crud_watch/update.php?updateid='.$idwatch.'"></a> | 
                                     <a href="crud_watch/delete.php?deleteid='.$idwatch.'"></a>

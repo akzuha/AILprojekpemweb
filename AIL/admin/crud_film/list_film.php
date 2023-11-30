@@ -30,7 +30,9 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
+                    <th>Film ID</th>
                     <th>Film Name</th>
+                    <th>Genre</th>
                     <th>Film Description</th>
                     <th>Film Cover</th>
                     <th>Supplier Name</th>
@@ -39,20 +41,16 @@
                   </thead>
                   <tbody>
                   <?php 
-                    $query = "SELECT film.idfilm, film.namafilm, film.deskripsi, film.cover, film.idsupplier, supplier.username FROM film INNER JOIN supplier ON film.idsupplier = supplier.idsupplier";
+                    $query = "SELECT film.idfilm, film.namafilm, film.deskripsi, film.cover, film.idsupplier, supplier.username, genre.genre FROM film JOIN supplier ON film.idsupplier = supplier.idsupplier JOIN genre ON film.idgenre = genre.idgenre";
                     $result = mysqli_query($koneksi,$query);
 
                     while($data_film = mysqli_fetch_assoc($result)){
-                        $idfilm = $data_film['idfilm'];
-                        $filmname = $data_film['namafilm'];
-                        $description = $data_film['deskripsi'];
-                        $cover = $data_film['cover'];
-                        $idsupplier = $data_film['idsupplier'];
-                        $username = $data_film['username'];
                         echo "
                           <tr>
+                              <td width='75'>$data_film[idfilm]</td>
                               <td>$data_film[namafilm]</td>
-                              <td width='600'>$data_film[deskripsi]</td>
+                              <td width='90'>$data_film[genre]</td>
+                              <td width='510'>$data_film[deskripsi]</td>
                               <td><img src='crud_film/images/$data_film[cover]' width='100' height='100'></td>
                               <td>$data_film[username]</td>
                               <td>

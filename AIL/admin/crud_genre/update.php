@@ -1,16 +1,16 @@
 <?php
     include("../../koneksi.php");
 
+    $id=$_GET['updateid'];
     if(isset($_GET['updateid'])){
-        $idgenre=$_GET['updateid'];
     
-        $query = "SELECT * FROM genre";
+        $query = "SELECT * FROM genre WHERE idgenre='$id'";
         $result = mysqli_query($koneksi, $query);
         $data = mysqli_fetch_assoc($result);
     }
 
     if (isset($_POST['edit'])){
-        $idgenre= $_POST['idgenre'];
+        $idgenre=$_POST['idgenre'];
         $genre = $_POST['genre'];
 
         $query = " UPDATE genre SET idgenre='$idgenre', genre='$genre' WHERE idgenre='$idgenre'";
@@ -35,16 +35,18 @@
 </head>
 <body>
     <h1>Edit genre Data</h1>
-    <a href="../index.php?page=list_user"><h3>Back</h3></a>
+    <a href="../index.php?page=list_genre"><h3>Back</h3></a>
     <form action="update.php" method="POST">
         <table>
             <tr>
-                <td>id genre<input type="text" name="idgenre" value="<?php if(isset($_GET['updateid'])){echo $data['idgenre'];} ?>"></td>
+                <td><input type="hidden" name="idgenre" value="<?php echo $data['idgenre']; ?>"></td>
             </tr>
             <tr>
-                <td>genre<input type="text" name="genre" value="<?php if(isset($_GET['updateid'])){echo $data['genre'];} ?>"></td>
+                <td>Genre</td>
+                <td><input type="text" name="genre" value="<?php echo $data['genre']; ?>"></td>
             </tr>
             <tr>
+                <td></td>
                 <td><input type="submit" name="edit" value="edit"></td>
             </tr>
         </table>

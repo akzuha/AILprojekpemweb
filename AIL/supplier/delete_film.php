@@ -9,6 +9,7 @@
         $hapus = mysqli_query($koneksi, $select);
         $gambar = mysqli_fetch_array($hapus);
         unlink("images/$gambar[cover]");
+        unlink("../admin/crud_film/images/$gambar[cover]");
         $result = mysqli_query($koneksi,$query);
         if($result){
             echo "deleted succesfully";

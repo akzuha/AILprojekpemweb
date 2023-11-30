@@ -36,6 +36,9 @@ switch ($_GET['page']){
     case 'add_film';
         include 'crud_film/add_film.php';
         break;
+    case 'add_user';
+        include 'crud_user/add_user.php';
+        break;
 }
 
 ?>

@@ -12,13 +12,12 @@
     if (isset($_POST['edit'])){
         $idakun= $_POST['idakun'];
         $username = $_POST['username'];
-        $password = $_POST['password'];
         $gender = $_POST['gender'];
         $tanggal_lahir = $_POST['tanggal_lahir'];
         $alamat = $_POST['alamat'];
         $level = $_POST['level'];
         
-        $query = " UPDATE user SET idakun='$idakun', username='$username', password='$password', gender='$gender', tanggal_lahir='$tanggal_lahir', alamat='$alamat', level='$level' WHERE idakun='$idakun'";
+        $query = " UPDATE user SET idakun='$idakun', username='$username', gender='$gender', tanggal_lahir='$tanggal_lahir', alamat='$alamat', level='$level' WHERE idakun='$idakun'";
         $result = mysqli_query($koneksi,$query);
             if($result){
                 ?>
@@ -48,12 +47,9 @@
                 <td><input type="text" name="username" value="<?php if(isset($_GET['updateid'])){echo $data['username'];} ?>"></td>
             </tr>
             <tr>
-                <td>password</td>
-                <td><input type="text" name="password" value="<?php if(isset($_GET['updateid'])){echo $data['password'];} ?>"></td>
-            </tr>
-            <tr>
                 <td>gender</td>
-                <td><select name="gender" id="gender" value="">
+                <td>
+                    <select name="gender" id="gender" value="">
                     <option value="Laki-laki" <?php echo ($data['gender'] == 'Laki-laki') ? 'selected' : ''; ?>>Laki-laki</option>
                     <option value="Perempuan" <?php echo ($data['gender'] == 'Perempuan') ? 'selected' : ''; ?>>Perempuan</option>
                     </select>                  

@@ -25,7 +25,7 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">User Data Table</h3></br>
-                <a href="crud_user/add_user.php"><h3 class="card-title">Add User Data</h3></a>
+                <a href="?page=add_user"><h3 class="card-title"></h3></a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">

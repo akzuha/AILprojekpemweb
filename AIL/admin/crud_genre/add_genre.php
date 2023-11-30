@@ -1,10 +1,9 @@
 <?php 
 
 if(isset($_POST['submit'])){
-  $idgenre= $_POST['idgenre'];
   $genre = $_POST['genre'];
 
-  $query = "INSERT INTO genre (idgenre,genre) VALUES ('$idgenre','$genre')";
+  $query = "INSERT INTO genre (genre) VALUES ('$genre')";
   $result = mysqli_query($koneksi,$query);
   if($result){
       ?><script>
@@ -56,13 +55,7 @@ if(isset($_POST['submit'])){
               <form action='<?php $_SERVER['PHP_SELF']; ?>' name='insert' method='post' enctype='multipart/form-data'>
     <table align="center">
         <tr>
-            <td>id genre</td>
-            <td>
-                <input type="text" name="idgenre">
-            </td>
-        </tr>
-        <tr>
-            <td>genre</td>
+            <td>Genre</td>
             <td>
                 <input type="text" name="genre">
             </td>
@@ -70,7 +63,7 @@ if(isset($_POST['submit'])){
         <tr>
             <td></td>
             <td>
-                <input type="submit" name="submit" value="Add genreData">
+                <input type="submit" name="submit" value="Add genre Data">
             </td>
         </tr>
     </table>

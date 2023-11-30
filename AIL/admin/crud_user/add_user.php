@@ -1,5 +1,5 @@
 <?php 
-include('koneksi.php');
+include('../../koneksi.php');
 
 if(isset($_POST['submit'])){
     $idakun = $_POST['idakun'];
@@ -30,7 +30,7 @@ if(isset($_POST['submit'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 align="center">ADD user</h1>
+            <h1 align="center">ADD USER</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -50,7 +50,7 @@ if(isset($_POST['submit'])){
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Form To Add user</h3>
+                <h3 class="card-title">Form To Add User</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->

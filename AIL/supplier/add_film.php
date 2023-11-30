@@ -1,17 +1,19 @@
 <?php 
 
 if(isset($_POST['submit'])){
-    $idfilm = $_POST['idfilm'];
     $namafilm = $_POST['namafilm'];
-    $cover = $_FILES['foto']['name'];
+    $idgenre = $_POST['genre'];
     $description = $_POST['deskripsi'];
+    $cover = $_FILES['foto']['name'];
     if ($cover != '') {
-        $upload = 'images/' . $cover;
-        move_uploaded_file($_FILES["foto"]["tmp_name"], $upload);
+        $uploadsup = 'images/' . $cover;
+        move_uploaded_file($_FILES["foto"]["tmp_name"], $uploadsup);
+        $uploadadm = '../admin/crud_film/images/' . $cover;
+        copy($uploadsup, $uploadadm);
     }
     $idsupplier = $_SESSION['idsupplier'];
 
-    $query = "INSERT INTO film (idfilm,namafilm,deskripsi,cover,idsupplier) VALUES ('$idfilm','$namafilm','$description','$cover','$idsupplier')";
+    $query = "INSERT INTO film (namafilm,deskripsi,cover,idgenre,idsupplier) VALUES ('$namafilm','$description','$cover','$idgenre','$idsupplier')";
     $result = mysqli_query($koneksi,$query);
     if($result){
         ?><script>
@@ -57,15 +59,22 @@ if(isset($_POST['submit'])){
               <form action='<?php $_SERVER['PHP_SELF']; ?>' name='insert' method='post' enctype='multipart/form-data'>
     <table align="center">
         <tr>
-            <td>Film ID</td>
-            <td>
-                <input type="text" name="idfilm">
-            </td>
-        </tr>
-        <tr>
             <td>Film Name</td>
             <td>
                 <input type="text" name="namafilm">
+            </td>
+        </tr>
+        <tr>
+            <td>Genre</td>
+            <td>
+              <select name="genre" id="genre">
+              <?php 
+                $genrename = mysqli_query($koneksi, "SELECT * FROM genre");
+                while ($data_genre = mysqli_fetch_assoc($genrename)) {
+                    echo "<option value='" . $data_genre['idgenre'] . "'> " . $data_genre['genre'] . " </option>";
+                }
+              ?>
+              </select>                  
             </td>
         </tr>
         <tr>
@@ -77,7 +86,7 @@ if(isset($_POST['submit'])){
         <tr>
             <td>Film Cover</td>
             <td>
-                <input type="file" name="foto" accept=".png, .jpg">
+                <input type="file" name="foto" accept=".png, .jpg, .jpeg, .webp">
             </td>
         </tr>
         <tr>

@@ -1,102 +1,40 @@
     <!-- main -->
-    <?php 
-    $film = "SELECT * FROM film ORDER BY idfilm DESC";
-    $query = mysqli_query($koneksi, $film);
-    $data_film = mysqli_fetch_array($query);
-    ?>
-        <section id="hero" class="hero">
-            <div class="container">
-                <h3>Movies and Streaming</h3>
-                <h1>AIL Streaming Film</h1>
-                <span></span>
-                <p>
-                    Tired getting home after work? Watch some Film and Chill with AIL ID.
-                </p>
-                <a href="?page=film" class="action_btn">Get Started</a>
-            </div>
-        </section>
         <!-- services -->
         <section id="services" class="services">
-            <div class="container">
-                <h2>Weekly Best Film Reccomendation</h2>
-                <!--Service 1-->
-                <div class="service">
-                    <div class="image">
-                        <img src="../supplier/images/<?php echo $data_film['cover']; ?>" alt="">
-                    </div>
-                    <div class="info">
-                        <div class="num">#1</div>
-                        <h3><?php echo $data_film['namafilm']; ?></h3>
-                        <p>
-                            <?php echo $data_film['deskripsi']; ?>
-                        </p>
-                        <a href="?page=film"><button class="action_btn">Read More</button></a>
-                    </div>
-                </div>
-                <!--Service 2-->
-                <div class="service service2">
-                    <div class="info">
-                        <div class="num">#2</div>
-                        <h3><?php echo $data_film['namafilm']; ?></h3>
-                        <p>
-                            <?php echo $data_film['deskripsi']; ?>
-                        </p>
-                        <a href="?page=film"><button class="action_btn">Read More</button></a>
-                    </div>
-                    <div class="image">
-                        <img src="../supplier/images/<?php echo $data_film['cover']; ?>" alt="">
-                    </div>
-                </div>
-                <!--Service 2-->
-                <div class="service">
-                    <div class="image">
-                        <img src="../supplier/images/<?php echo $data_film['cover']; ?>" alt="">
-                    </div>
-                    <div class="info">
-                        <div class="num">#3</div>
-                        <h3><?php echo $data_film['namafilm']; ?></h3>
-                        <p>
-                        <?php echo $data_film['deskripsi']; ?>
-                        </p>
-                        <a href="?page=film"><button class="action_btn">Read More</button></a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div class='container_film'>
+                        <h2>List Film</h2>
+            <?php 
+                    $query = "SELECT * FROM film WHERE 1";
+                    $result = mysqli_query($koneksi,$query);
 
-        <!-- testimonial -->
-        <section id="testimonials" class="testimonials">
-            <div class="container">
-                <h2>Testimonials</h2>
-                <div class="grid_container">
-                    <!--Testimonials-->
-                    <div class="testimonial">
-                        <i class="fa fa-quote-left"></i>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ipsam, eos minima voluptatem architecto assumenda, consectetur doloremque doloribus animi quibusdam nostrum perferendis fugiat reprehenderit fuga delectus? Aliquam vel accusantium enim.
-                        </p>
-                        <div class="name">Achmad Aulia</div>
-                        <div class="job">Director</div>
+                    while($data_film = mysqli_fetch_assoc($result)){
+                        $idfilm = $data_film['idfilm'];
+                        $filmname = $data_film['namafilm'];
+                        $description = $data_film['deskripsi'];
+                        $cover = $data_film['cover'];
+                        $idsupplier = $data_film['idsupplier'];
+                        echo "
+                        
+                        <!--Service 1-->
+                        <div class='service'>
+                            <div class='image'>
+                                <img src='../supplier/images/$data_film[cover]' width='100' height='100'>
+                            </div>
+                            <div class='info'>
+                                
+                                <h3>$data_film[namafilm]</h3>
+                                <p>
+                                $data_film[deskripsi]
+                                </p>
+                                <a href='?page=film'><button class='action_btn'>Watch Now</button></a>
+                            </div>
+                        </div>
                     </div>
-                    <!--Testimonials-->
-                    <div class="testimonial">
-                        <i class="fa fa-quote-left"></i>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ipsam, eos minima voluptatem architecto assumenda, consectetur doloremque doloribus animi quibusdam nostrum perferendis fugiat reprehenderit fuga delectus? Aliquam vel accusantium enim.
-                        </p>
-                        <div class="name">Achmad Aulia</div>
-                        <div class="job">Director</div>
-                    </div>
-                    <div class="testimonial">
-                        <i class="fa fa-quote-left"></i>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ipsam, eos minima voluptatem architecto assumenda, consectetur doloremque doloribus animi quibusdam nostrum perferendis fugiat reprehenderit fuga delectus? Aliquam vel accusantium enim.
-                        </p>
-                        <div class="name">Achmad Aulia</div>
-                        <div class="job">Director</div>
-                    </div>
-                </div>
-            </div>
+                          ";
+                    }
+                  ?>
+            
+            
         </section>
         
         <!-- contact -->

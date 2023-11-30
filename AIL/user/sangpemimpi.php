@@ -1,19 +1,16 @@
     <!-- main -->
-        <link rel="stylesheet" href="../css/film.css">
         <!-- services -->
         <section id="services" class="services">
         <div class='container_film'>
                         <h2>List Film</h2>
             <?php 
-                    $query = "SELECT * FROM film WHERE 1";
+                    $query = "SELECT film.idfilm, film.namafilm, film.deskripsi, film.cover, film.idsupplier, supplier.username, genre.genre 
+                    FROM film 
+                    JOIN supplier ON film.idsupplier = supplier.idsupplier 
+                    JOIN genre ON film.idgenre = genre.idgenre";
                     $result = mysqli_query($koneksi,$query);
 
                     while($data_film = mysqli_fetch_assoc($result)){
-                        $idfilm = $data_film['idfilm'];
-                        $filmname = $data_film['namafilm'];
-                        $description = $data_film['deskripsi'];
-                        $cover = $data_film['cover'];
-                        $video_url = $data_film['video_url'];
                         echo "
                         
                         <!--Service 1-->
@@ -23,10 +20,11 @@
                             </div>
                             <div class='info'>
                                 <h3>$data_film[namafilm]</h3>
-                                <p>
+                                <p style='color:#fff;'>$data_film[genre]</p>
+                                <p style='color: black;'>
                                 $data_film[deskripsi]
                                 </p>
-                                <a href='?page=film'><button class='action_btn'>Watch Now</button></a>
+                                <a href='?page=$data_film[namafilm]'><button class='action_btn'>Watch Now</button></a>
                             </div>
                         </div>
                     </div>

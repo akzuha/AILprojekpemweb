@@ -20,7 +20,7 @@
         <!-- services -->
         <section id="services" class="services">
             <div class="container">
-                <h2>Weekly Best Film Reccomendation</h2>
+                <h2>Newest Release Production</h2>
                 <!--Service 1-->
                 <div class="service">
                     <div class="image">
@@ -75,27 +75,27 @@
                     <div class="testimonial">
                         <i class="fa fa-quote-left"></i>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ipsam, eos minima voluptatem architecto assumenda, consectetur doloremque doloribus animi quibusdam nostrum perferendis fugiat reprehenderit fuga delectus? Aliquam vel accusantium enim.
+                            Perjalanan membuat website ini tidaklah mudah, perjalanan naik turun seperti menaiki roller coaster. Sekian kata dari saya, semoga mendapat hasil dan nilai yang terbaik.
                         </p>
                         <div class="name">Achmad Aulia</div>
-                        <div class="job">Director</div>
+                        <div class="job">Executive</div>
                     </div>
                     <!--Testimonials-->
                     <div class="testimonial">
                         <i class="fa fa-quote-left"></i>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ipsam, eos minima voluptatem architecto assumenda, consectetur doloremque doloribus animi quibusdam nostrum perferendis fugiat reprehenderit fuga delectus? Aliquam vel accusantium enim.
+                            Membagi waktu mungkin mudah untuk dibilang, tetapi nyatanya tidaklah semudah itu untuk dilaksanakan. Ketika semua dirasa rumit dan tidak ada jalan keluar, ingat aku akan selalu bersamamu.
                         </p>
-                        <div class="name">Achmad Aulia</div>
+                        <div class="name">Levi</div>
                         <div class="job">Director</div>
                     </div>
                     <div class="testimonial">
                         <i class="fa fa-quote-left"></i>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ipsam, eos minima voluptatem architecto assumenda, consectetur doloremque doloribus animi quibusdam nostrum perferendis fugiat reprehenderit fuga delectus? Aliquam vel accusantium enim.
+                            Jangan percaya kepada siapapun, sesungguhnya di dunia ini kau hanya memiliki diri mu sendiri, dan Tuhan. Maka jangan pernah lupakan Tuhanmu.
                         </p>
-                        <div class="name">Achmad Aulia</div>
-                        <div class="job">Director</div>
+                        <div class="name">Asshidiqi</div>
+                        <div class="job">Programmer</div>
                     </div>
                 </div>
             </div>

@@ -4,21 +4,30 @@ if(isset($_POST['submit'])){
     $idfilm = $_POST['idfilm'];
     $namafilm = $_POST['namafilm'];
     $cover = $_FILES['foto']['name'];
+    $video = $_FILES['video']['name'];
+    $video_tmp = $_FILES['video']['tmp_name'];
     $description = $_POST['deskripsi'];
     if ($cover != '') {
         $upload = 'crud_film/images/' . $cover;
         move_uploaded_file($_FILES["foto"]["tmp_name"], $upload);
     }
+
+    if($video != ""){
+      $directory = 'images/';
+      move_uploaded_file($video_tmp, $directory . $upload);
+    }
     $idsupplier = $_SESSION['idsupplier'];
     
-    $query = "INSERT INTO film (idfilm,namafilm,deskripsi,cover,idsupplier) VALUES ('$idfilm','$namafilm','$description','$cover','$idsupplier')";
+    $query = "INSERT INTO film (idfilm,namafilm,deskripsi,cover,video,idsupplier) VALUES ('$idfilm','$namafilm','$description','$cover','$upload','$idsupplier')";
     $result = mysqli_query($koneksi,$query);
     if($result){
         ?><script>
         alert('Film Berhasil Ditambahkan!');
-        document.location = '../index.php?page=list_film';
+        document.location = 'coba.php';
         </script>
         <?php
+    }else{
+      echo "<script>Fak</script>";
     }
 }
 ?>
@@ -57,12 +66,6 @@ if(isset($_POST['submit'])){
               <form action='<?php $_SERVER['PHP_SELF']; ?>' name='insert' method='post' enctype='multipart/form-data'>
     <table align="center">
         <tr>
-            <td>Film ID</td>
-            <td>
-                <input type="text" name="idfilm">
-            </td>
-        </tr>
-        <tr>
             <td>Film Name</td>
             <td>
                 <input type="text" name="namafilm">
@@ -78,6 +81,12 @@ if(isset($_POST['submit'])){
             <td>Film Cover</td>
             <td>
                 <input type="file" name="foto" accept=".png, .jpg, .jpeg">
+            </td>
+        </tr>
+        <tr>
+            <td>Video</td>
+            <td>
+                <input type="file" name="video" accept=".mp4">
             </td>
         </tr>
         <tr>

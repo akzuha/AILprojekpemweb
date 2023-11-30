@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
         <script>
             alert('edit sucessfull!');
             document.location = 'index.php?page=list_film';
-        </script>";
+        </script>
         <?php
     }else{
         echo "failed" .mysqli_error($koneksi); 

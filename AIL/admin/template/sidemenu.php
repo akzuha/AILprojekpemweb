@@ -44,6 +44,14 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="?page=list_supplier" class="nav-link">
+              <i class="nav-icon fas fa-solid fa-user"></i>
+              <p>
+                Supplier
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="?page=list_film" class="nav-link">
               <i class="nav-icon fas fa-solid fa-film"></i>
               <p>

@@ -7,10 +7,13 @@
   $jumlah_film = mysqli_num_rows($data_film);
 
   $data_user = mysqli_query($koneksi,"SELECT * FROM user");
-  $jumlah_user = mysqli_num_rows($data_film);
+  $jumlah_user = mysqli_num_rows($data_user);
 
   $data_watch = mysqli_query($koneksi,"SELECT * FROM watch");
   $jumlah_watch = mysqli_num_rows($data_watch);
+
+  $data_supp = mysqli_query($koneksi,"SELECT * FROM supplier");
+  $jumlah_supp = mysqli_num_rows($data_supp);
 
   ?>
   
@@ -21,7 +24,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">Hello <?php echo $_SESSION['username']; ?>, Welcome To Admin Dashboard</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -40,7 +43,7 @@
         <div class="row">
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-info">
+            <div class="small-box bg-blue">
               <div class="inner">
                 <h3><?php echo $jumlah_film ?></h3>
                 <p>Total Film</p>
@@ -51,10 +54,23 @@
               <a href="?page=list_film" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-purple">
+              <div class="inner">
+                <h3><?php echo $jumlah_supp ?></h3>
+                <p>Total Supplier</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person"></i>
+              </div>
+              <a href="?page=list_supplier" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-success">
+            <div class="small-box bg-green">
               <div class="inner">
                 <h3><?php echo $jumlah_watch ?></h3>
                 <p>Total Watch</p>
@@ -68,7 +84,7 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-warning">
+            <div class="small-box bg-white">
               <div class="inner">
                 <h3><?php echo $jumlah_user ?></h3>
                 <p>Total User</p>
@@ -82,7 +98,7 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-danger">
+            <div class="small-box bg-pink">
               <div class="inner">
                 <h3><?php echo $jumlah_genre ?></h3>
                 <p>Total Genre</p>

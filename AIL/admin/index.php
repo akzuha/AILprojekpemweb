@@ -27,6 +27,9 @@ switch ($_GET['page']){
     case 'list_film';
         include 'crud_film/list_film.php';
         break;
+    case 'list_supplier';
+        include 'crud_supplier/list_supplier.php';
+        break;
     case 'add_watch';
         include 'crud_watch/add_watch.php';
         break;

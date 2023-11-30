@@ -22,7 +22,7 @@
                 <script>
                     alert('edit sucessfull!');
                     document.location = '../index.php?page=list_user';
-                </script>";
+                </script>
                 <?php
             }else{
                 echo "failed" .mysqli_error($koneksi); 

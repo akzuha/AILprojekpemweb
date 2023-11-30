@@ -24,7 +24,7 @@
                 <script>
                     alert('edit sucessfull!');
                     document.location = '../index.php?page=list_user';
-                </script>";
+                </script>
                 <?php
             }else{
                 echo "failed" .mysqli_error($koneksi); 
@@ -43,11 +43,15 @@
     <form action="update.php" method="POST">
         <table>
             <tr>
-                <td>username</td>
+                <td>ID Account</td>
+                <td><input type="text" name="idakun" value="<?php if(isset($_GET['updateid'])){echo $data['idakun'];} ?>"></td>
+            </tr>
+            <tr>
+                <td>Username</td>
                 <td><input type="text" name="username" value="<?php if(isset($_GET['updateid'])){echo $data['username'];} ?>"></td>
             </tr>
             <tr>
-                <td>gender</td>
+                <td>Gender</td>
                 <td>
                     <select name="gender" id="gender" value="">
                     <option value="Laki-laki" <?php echo ($data['gender'] == 'Laki-laki') ? 'selected' : ''; ?>>Laki-laki</option>
@@ -56,11 +60,11 @@
                 </td>
             </tr>
             <tr>
-                <td>tanggal lahir</td>
+                <td>Birthdate</td>
                 <td><input type="date" name="tanggal_lahir" value="<?php if(isset($_GET['updateid'])){echo $data['tanggal_lahir'];} ?>"></td>
             </tr>
             <tr>
-                <td>alamat</td>
+                <td>Address</td>
                 <td><textarea name="alamat" id="alamat" cols="30" rows="5"><?php if(isset($_GET['updateid'])){echo $data['alamat'];}?></textarea></td>
             </tr>
             <tr>
